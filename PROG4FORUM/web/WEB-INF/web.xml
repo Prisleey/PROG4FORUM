@@ -6,7 +6,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>CadastroUserServlet</servlet-name>
-        <url-pattern>/CadastroUserServlet</url-pattern>
+        <url-pattern>/Cadastro/UserServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
