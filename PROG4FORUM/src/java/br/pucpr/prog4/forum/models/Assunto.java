@@ -11,6 +11,10 @@ public class Assunto {
         
     }
 
+    public Assunto(List<Topico> topicos, String assunto) {
+        
+    }
+
     public List<Topico> getTopicos() {
         return topicos;
     }
