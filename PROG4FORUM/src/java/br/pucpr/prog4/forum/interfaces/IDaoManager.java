@@ -8,4 +8,7 @@ public interface IDaoManager {
     void confirmarTransação();
     void abortarTransação();
     //IPessoaDAO getPessoaDAO();
+    IUsuarioDAO getUsuarioDAO();
+    IAssuntoDAO getAssuntoDAO();
+    ITopicoDAO getTopicoDAO();
 }

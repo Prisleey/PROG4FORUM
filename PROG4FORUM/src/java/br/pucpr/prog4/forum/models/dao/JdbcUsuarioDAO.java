@@ -40,16 +40,16 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
 
     @Override
     public List<Usuario> getTodosUsuarios() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public Usuario getUsuarioPorId(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public Usuario getUsuarioPorSenha(String senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 }

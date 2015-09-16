@@ -17,7 +17,8 @@ import java.util.List;
  *
  * @author prisl
  */
-public class JdbcTopicoDAO implements ITopicoDAO{
+public class JdbcTopicoDAO implements ITopicoDAO {
+
     private Connection conexao;
     
     public void setConexão(Connection conexao) {
@@ -49,16 +50,16 @@ public class JdbcTopicoDAO implements ITopicoDAO{
 
     @Override
     public List<Topico> buscarTopicos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public List<Topico> buscarTopicosPorAssunto(Assunto assunto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public Topico buscarTopicoPorId(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 }

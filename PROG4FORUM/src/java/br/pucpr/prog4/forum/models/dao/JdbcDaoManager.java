@@ -1,48 +1,41 @@
 package br.pucpr.prog4.forum.models.dao;
 
 import br.pucpr.prog4.forum.exception.ForumException;
+import br.pucpr.prog4.forum.interfaces.IAssuntoDAO;
+import br.pucpr.prog4.forum.interfaces.IDaoManager;
+import br.pucpr.prog4.forum.interfaces.ITopicoDAO;
+import br.pucpr.prog4.forum.interfaces.IUsuarioDAO;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JdbcDaoManager// implements IDaoManager 
-{
+public class JdbcDaoManager implements IDaoManager {
     private Connection conexao;
-    private JdbcUsuarioDAO pessoaDAO;
-    
-    public JdbcDaoManager()
-    {
-        this.pessoaDAO = new JdbcUsuarioDAO();
-    }
-    
-    //@Override
-    public void iniciar() throws ForumException
-    {
-        try
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url;
-            url = "jdbc:mysql://localhost:3306/lojaprisley";
-            conexao = DriverManager.getConnection(url, "root", "root");
-            
-            conexao.setAutoCommit(false);
-            pessoaDAO.setConexão(conexao);
-        }
-        catch( Exception ex )
-        {
-            throw new ForumException("Ocorreu um erro ao conectar ao banco de dados:" + 
-                    ex.getMessage());
-        }
+    private JdbcAssuntoDAO assuntoDAO;
+    private JdbcUsuarioDAO usuarioDAO;
+    private JdbcTopicoDAO topicoDAO;
+
+    public JdbcDaoManager() {
+        iniciar();
     }
 
     //@Override
-    public void encerrar() 
-    {
+    public void iniciar() {
+        if(conexao == null) {
+            conexao = Conexao.getInstance().getConnection();
+        }
+        this.topicoDAO = new JdbcTopicoDAO();
+        this.usuarioDAO = new JdbcUsuarioDAO();
+        this.assuntoDAO = new JdbcAssuntoDAO();
+    }
+
+    //@Override
+    public void encerrar() {
         try {
-            if(!conexao.isClosed())
+            if(!conexao.isClosed()) {
                 conexao.close();
-        } catch (SQLException ex) {
-            
+            }
+        } catch (SQLException e) {
+            throw new ForumException("Erro " + e.getMessage());
         }
     }
 
@@ -64,8 +57,18 @@ public class JdbcDaoManager// implements IDaoManager
         }
     }
 
-    //@Override
-    /*public IPessoaDAO getPessoaDAO() {
-        return pessoaDAO;
-    } */   
+    @Override
+    public IAssuntoDAO getAssuntoDAO() {
+        return assuntoDAO;
+    }
+
+    @Override
+    public ITopicoDAO getTopicoDAO() {
+        return topicoDAO;
+    }
+
+    @Override
+    public IUsuarioDAO getUsuarioDAO() {
+        return usuarioDAO;
+    }
 }
