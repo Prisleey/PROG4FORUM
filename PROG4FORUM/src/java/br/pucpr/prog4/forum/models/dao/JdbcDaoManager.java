@@ -1,5 +1,6 @@
 package br.pucpr.prog4.forum.models.dao;
 
+import br.pucpr.prog4.forum.exception.ForumException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -15,7 +16,7 @@ public class JdbcDaoManager// implements IDaoManager
     }
     
     //@Override
-    public void iniciar() throws DaoException
+    public void iniciar() throws ForumException
     {
         try
         {
@@ -29,7 +30,7 @@ public class JdbcDaoManager// implements IDaoManager
         }
         catch( Exception ex )
         {
-            throw new DaoException("Ocorreu um erro ao conectar ao banco de dados:" + 
+            throw new ForumException("Ocorreu um erro ao conectar ao banco de dados:" + 
                     ex.getMessage());
         }
     }
@@ -50,7 +51,7 @@ public class JdbcDaoManager// implements IDaoManager
         try {
             conexao.commit();
         } catch (SQLException ex) {
-            throw new DaoException("Ocorreu um erro ao confirmar a transação" + ex.getMessage());
+            throw new ForumException("Ocorreu um erro ao confirmar a transação" + ex.getMessage());
         }
     }
 
@@ -59,7 +60,7 @@ public class JdbcDaoManager// implements IDaoManager
         try {
             conexao.rollback();
         } catch (SQLException ex) {
-            throw new DaoException("Ocorreu um erro ao confirmar a transação" + ex.getMessage());
+            throw new ForumException("Ocorreu um erro ao confirmar a transação" + ex.getMessage());
         }
     }
 

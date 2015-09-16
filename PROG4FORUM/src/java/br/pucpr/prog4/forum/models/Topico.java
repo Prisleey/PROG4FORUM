@@ -4,12 +4,21 @@ import java.util.List;
 
 public class Topico {
 
+    private Long id;
     private Assunto assunto;
     private String topico;
     private List<Resposta> respostas;
 
     public Topico() {
         
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public List<Resposta> getRespostas() {

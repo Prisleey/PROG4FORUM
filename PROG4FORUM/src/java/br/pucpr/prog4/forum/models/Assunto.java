@@ -1,9 +1,9 @@
 package br.pucpr.prog4.forum.models;
-
 import java.util.List;
 
 public class Assunto {
 
+    private Long id;
     private List<Topico> topicos;
     private String assunto;
 
@@ -13,6 +13,14 @@ public class Assunto {
 
     public Assunto(List<Topico> topicos, String assunto) {
         
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public List<Topico> getTopicos() {
