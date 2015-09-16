@@ -4,17 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JdbcDaoManager implements IDaoManager 
+public class JdbcDaoManager// implements IDaoManager 
 {
     private Connection conexao;
-    private JdbcPessoaDAO pessoaDAO;
+    private JdbcUsuarioDAO pessoaDAO;
     
     public JdbcDaoManager()
     {
-        this.pessoaDAO = new JdbcPessoaDAO();
+        this.pessoaDAO = new JdbcUsuarioDAO();
     }
     
-    @Override
+    //@Override
     public void iniciar() throws DaoException
     {
         try
@@ -34,7 +34,7 @@ public class JdbcDaoManager implements IDaoManager
         }
     }
 
-    @Override
+    //@Override
     public void encerrar() 
     {
         try {
@@ -45,7 +45,7 @@ public class JdbcDaoManager implements IDaoManager
         }
     }
 
-    @Override
+    //@Override
     public void confirmarTransação() {
         try {
             conexao.commit();
@@ -54,7 +54,7 @@ public class JdbcDaoManager implements IDaoManager
         }
     }
 
-    @Override
+    //@Override
     public void abortarTransação() {
         try {
             conexao.rollback();
@@ -63,8 +63,8 @@ public class JdbcDaoManager implements IDaoManager
         }
     }
 
-    @Override
-    public IPessoaDAO getPessoaDAO() {
+    //@Override
+    /*public IPessoaDAO getPessoaDAO() {
         return pessoaDAO;
-    }    
+    } */   
 }
