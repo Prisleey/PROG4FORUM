@@ -5,10 +5,13 @@
  */
 package br.pucpr.prog4.forum.models.dao;
 
+import br.pucpr.prog4.forum.interfaces.ITopicoDAO;
 import br.pucpr.prog4.forum.exception.ForumException;
+import br.pucpr.prog4.forum.models.Assunto;
 import br.pucpr.prog4.forum.models.Topico;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.List;
 
 /**
  *
@@ -22,16 +25,14 @@ public class JdbcTopicoDAO implements ITopicoDAO{
     }
 
     @Override
-    public Topico inserir(Topico topico) {
+    public Topico inserirTopico(Topico topico) {
         String sql;
         sql = "INSERT INTO topico("
                 + "assunto,"
                 + "topico,"
                 + "resposta"
                 + " VALUES (?, ?, ?)";
-    /*private Assunto assunto;
-    private String topico;
-    private List<Resposta> respostas;*/
+
         PreparedStatement ps;
         try {
             ps = conexao.prepareStatement(sql);
@@ -44,5 +45,20 @@ public class JdbcTopicoDAO implements ITopicoDAO{
         } catch (Exception ex) {
             throw new ForumException("Ocorreu um erro ao inserir um usuario " + ex.getMessage());
         }
+    }
+
+    @Override
+    public List<Topico> buscarTopicos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Topico> buscarTopicosPorAssunto(Assunto assunto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Topico buscarTopicoPorId(long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

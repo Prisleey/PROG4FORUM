@@ -1,4 +1,4 @@
-package br.pucpr.prog4.forum.models.dao;
+package br.pucpr.prog4.forum.interfaces;
 
 import br.pucpr.prog4.forum.exception.ForumException;
 

@@ -1,9 +1,11 @@
 package br.pucpr.prog4.forum.models.dao;
 
+import br.pucpr.prog4.forum.interfaces.IUsuarioDAO;
 import br.pucpr.prog4.forum.exception.ForumException;
 import br.pucpr.prog4.forum.models.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.List;
 
 public class JdbcUsuarioDAO implements IUsuarioDAO {
 
@@ -14,7 +16,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
     }
     
     @Override
-    public Usuario inserir(Usuario user) {
+    public Usuario inserirUsuario(Usuario user) {
         String sql;
         sql = "INSERT INTO usuario("
                 + "nome,"
@@ -34,5 +36,20 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
         } catch (Exception ex) {
             throw new ForumException("Ocorreu um erro ao inserir um usuario " + ex.getMessage());
         }
+    }
+
+    @Override
+    public List<Usuario> getTodosUsuarios() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Usuario getUsuarioPorId(long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Usuario getUsuarioPorSenha(String senha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
