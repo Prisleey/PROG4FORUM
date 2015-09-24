@@ -1,10 +1,10 @@
 package br.pucpr.prog4.forum.bc;
 
 import br.pucpr.prog4.forum.exception.ForumException;
-import br.pucpr.prog4.forum.models.Resposta;
+import br.pucpr.prog4.forum.models.Mensagem;
 import java.util.List;
 
-public class RespostaBC implements ITesteBC<Resposta> {
+public class RespostaBC implements ITesteBC<Mensagem> {
 
     private static RespostaBC instance = new RespostaBC();
 
@@ -20,39 +20,39 @@ public class RespostaBC implements ITesteBC<Resposta> {
     }
 
     @Override
-    public Long insert(Resposta object) {
+    public Long insert(Mensagem object) {
         validateForDataModification(object);
         return null;
     }
 
     @Override
-    public boolean update(Resposta object) {
+    public boolean update(Mensagem object) {
         validateForDataModification(object);
         return true;
     }
 
     @Override
-    public boolean delete(Resposta object) {
+    public boolean delete(Mensagem object) {
         return true;
     }
 
     @Override
-    public Resposta findById(Long id) {
+    public Mensagem findById(Long id) {
         return null;
     }
 
     @Override
-    public List<Resposta> findByFilter(Resposta filter) {
+    public List<Mensagem> findByFilter(Mensagem filter) {
         return null;
     }
 
     @Override
-    public List<Resposta> findAll() {
+    public List<Mensagem> findAll() {
         return null;
     }
 
     @Override
-    public void validateForDataModification(Resposta object) {
+    public void validateForDataModification(Mensagem object) {
         if(object == null) {
             throw new ForumException("Resposta nula.");
         }
@@ -62,7 +62,7 @@ public class RespostaBC implements ITesteBC<Resposta> {
     }
 
     @Override
-    public boolean validateForFindData(Resposta object) {
+    public boolean validateForFindData(Mensagem object) {
         return true;
     }   
 }

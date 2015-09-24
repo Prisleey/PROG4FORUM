@@ -7,7 +7,7 @@ public class Topico {
     private Long id;
     private Assunto assunto;
     private String topico;
-    private List<Resposta> respostas;
+    private List<Mensagem> respostas;
 
     public Topico() {
         
@@ -21,11 +21,11 @@ public class Topico {
         this.id = id;
     }
 
-    public List<Resposta> getRespostas() {
+    public List<Mensagem> getRespostas() {
         return respostas;
     }
 
-    public void setRespostas(List<Resposta> respostas) {
+    public void setRespostas(List<Mensagem> respostas) {
         this.respostas = respostas;
     }
 

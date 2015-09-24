@@ -9,6 +9,7 @@ public class Usuario {
     private String email;
     private String senha;
     private List<Topico> topicos;
+    private List<Mensagem> mensagens;
 
     public Usuario() {
         

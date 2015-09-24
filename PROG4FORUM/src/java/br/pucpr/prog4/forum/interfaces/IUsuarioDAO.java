@@ -6,6 +6,6 @@ public interface IUsuarioDAO {
     public Usuario inserirUsuario(Usuario pessoa);
     public List<Usuario> getTodosUsuarios(); 
     public Usuario getUsuarioPorId(long id); 
-    public Usuario getUsuarioPorSenha(String senha); 
+    public Usuario getUsuarioLogin(String email, String senha);
 
 }

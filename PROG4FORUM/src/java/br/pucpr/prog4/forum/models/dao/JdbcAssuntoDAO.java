@@ -8,7 +8,7 @@ import java.util.List;
 public class JdbcAssuntoDAO implements IAssuntoDAO {
 
     @Override
-    public boolean inserirAssunto(Assunto assunto) {
+    public Assunto inserirAssunto(Assunto assunto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

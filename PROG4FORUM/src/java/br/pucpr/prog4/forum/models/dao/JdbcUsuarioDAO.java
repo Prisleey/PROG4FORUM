@@ -10,8 +10,8 @@ import java.util.List;
 public class JdbcUsuarioDAO implements IUsuarioDAO {
 
     private Connection conexao;
-    
-    public void setConexão(Connection conexao) {
+
+    public JdbcUsuarioDAO(Connection conexao) {
         this.conexao = conexao;
     }
     
@@ -49,7 +49,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
     }
 
     @Override
-    public Usuario getUsuarioPorSenha(String senha) {
+    public Usuario getUsuarioLogin(String email, String senha) {
         return null;
     }
 }

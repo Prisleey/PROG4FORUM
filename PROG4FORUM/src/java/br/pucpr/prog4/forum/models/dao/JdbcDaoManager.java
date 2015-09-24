@@ -10,25 +10,26 @@ import java.sql.SQLException;
 
 public class JdbcDaoManager implements IDaoManager {
     private Connection conexao;
+    
     private JdbcAssuntoDAO assuntoDAO;
     private JdbcUsuarioDAO usuarioDAO;
     private JdbcTopicoDAO topicoDAO;
 
     public JdbcDaoManager() {
-        iniciar();
+        
     }
 
-    //@Override
+    @Override
     public void iniciar() {
         if(conexao == null) {
             conexao = Conexao.getInstance().getConnection();
         }
         this.topicoDAO = new JdbcTopicoDAO();
-        this.usuarioDAO = new JdbcUsuarioDAO();
+        this.usuarioDAO = new JdbcUsuarioDAO(conexao);
         this.assuntoDAO = new JdbcAssuntoDAO();
     }
 
-    //@Override
+    @Override
     public void encerrar() {
         try {
             if(!conexao.isClosed()) {
@@ -39,7 +40,7 @@ public class JdbcDaoManager implements IDaoManager {
         }
     }
 
-    //@Override
+    @Override
     public void confirmarTransação() {
         try {
             conexao.commit();
@@ -48,7 +49,7 @@ public class JdbcDaoManager implements IDaoManager {
         }
     }
 
-    //@Override
+    @Override
     public void abortarTransação() {
         try {
             conexao.rollback();

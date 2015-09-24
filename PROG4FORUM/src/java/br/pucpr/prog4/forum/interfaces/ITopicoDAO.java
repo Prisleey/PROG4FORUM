@@ -8,5 +8,4 @@ public interface ITopicoDAO {
     public List<Topico> buscarTopicos(); 
     public List<Topico> buscarTopicosPorAssunto(Assunto assunto); 
     public Topico buscarTopicoPorId(long id); 
-
 }
