@@ -8,18 +8,22 @@ import java.util.List;
 public class UsuarioDAOImpl implements IUsuarioDAO{
 
     @Override
-    public Usuario inserirUsuario(Usuario pessoa) {
+    public boolean inserirUsuario(Usuario pessoa) {
         IDaoManager iManager = new JdbcDaoManager();
         IUsuarioDAO iUserDAO;
         try {
             iManager.iniciar();
             iUserDAO = iManager.getUsuarioDAO();
-            Usuario usuario = iUserDAO.inserirUsuario(pessoa);
+            iUserDAO.inserirUsuario(pessoa);
             iManager.confirmarTransação();
             iManager.encerrar();
-            return usuario;
+            return true;
         }catch (Exception e) {
+            iManager.abortarTransação();
             throw e;
+        } finally {
+            iManager.confirmarTransação();
+            iManager.encerrar();
         }
     }
 
@@ -35,7 +39,11 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
             iManager.encerrar();
             return users;
         } catch (Exception e) {
+            iManager.abortarTransação();
             throw e;
+        } finally {
+            iManager.confirmarTransação();
+            iManager.encerrar();
         }
     }
 
@@ -51,7 +59,11 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
             iManager.encerrar();
             return user;
         } catch (Exception e) {
+            iManager.abortarTransação();
             throw e;
+        } finally {
+            iManager.confirmarTransação();
+            iManager.encerrar();
         }
     }
 

@@ -1,62 +1,39 @@
 package br.pucpr.prog4.forum.models.dao;
 
-import br.pucpr.prog4.forum.interfaces.IAssuntoDAO;
 import br.pucpr.prog4.forum.interfaces.IDaoManager;
+import br.pucpr.prog4.forum.interfaces.ITopicoDAO;
 import br.pucpr.prog4.forum.models.Assunto;
 import br.pucpr.prog4.forum.models.Topico;
 import java.util.List;
 
-public class AssuntoDAOImpl implements IAssuntoDAO {
+public class TopicoDAOImpl implements ITopicoDAO {
 
     @Override
-    public boolean inserirAssunto(Assunto assunto) {
+    public boolean inserirTopico(Topico topico) {
         IDaoManager iManager = new JdbcDaoManager();
-        IAssuntoDAO iAssuntoDAO;
+        ITopicoDAO iTopicoDAO = iManager.getTopicoDAO();
         try {
-            iManager.iniciar();
-            iAssuntoDAO = iManager.getAssuntoDAO();
-            iAssuntoDAO.inserirAssunto(assunto);
+            iTopicoDAO.inserirTopico(topico);
             iManager.confirmarTransação();
             iManager.encerrar();
             return true;
-        }catch (Exception e) {
+        }catch(Exception e){
             iManager.abortarTransação();
             throw e;
-        } finally {
-            iManager.confirmarTransação();
+        }finally{
             iManager.encerrar();
         }
+        
     }
 
     @Override
-    public List<Assunto> buscarAssuntos() {
+    public List<Topico> buscarTopicos() {
         IDaoManager iManager = new JdbcDaoManager();
-        IAssuntoDAO iAssuntoDAO;
-        try {
-            iManager.iniciar();
-            iAssuntoDAO = iManager.getAssuntoDAO();
-            List<Assunto> assuntos = iAssuntoDAO.buscarAssuntos();
-            iManager.confirmarTransação();
-            iManager.encerrar();
-            return assuntos;
-        } catch (Exception e) {
-            iManager.abortarTransação();
-            throw e;
-        } finally {
-            iManager.confirmarTransação();
-            iManager.encerrar();
-        }
-    }
-
-    @Override
-    public List<Topico> buscarTopicosAssunto(Assunto assunto) {
-        IDaoManager iManager = new JdbcDaoManager();
-        IAssuntoDAO iAssuntoDAO;
+        ITopicoDAO iTopicoDAO;
         List<Topico> topicos;
         try {
-            iManager.iniciar();
-            iAssuntoDAO = iManager.getAssuntoDAO();
-            topicos = iAssuntoDAO.buscarTopicosAssunto(assunto);
+            iTopicoDAO = iManager.getTopicoDAO();
+            topicos = iTopicoDAO.buscarTopicos();
             iManager.confirmarTransação();
             iManager.encerrar();
             return topicos;
@@ -64,27 +41,44 @@ public class AssuntoDAOImpl implements IAssuntoDAO {
             iManager.abortarTransação();
             throw e;
         } finally {
-            iManager.confirmarTransação();
             iManager.encerrar();
         }
     }
 
     @Override
-    public Assunto buscarAssuntoPorId(long id) {
+    public List<Topico> buscarTopicosPorAssunto(Assunto assunto) {
         IDaoManager iManager = new JdbcDaoManager();
-        IAssuntoDAO iAssuntoDAO;
+        ITopicoDAO iTopicoDAO;
+        List<Topico> topicos;
         try {
-            iManager.iniciar();
-            iAssuntoDAO = iManager.getAssuntoDAO();
-            Assunto assunto = iAssuntoDAO.buscarAssuntoPorId(id);
+            iTopicoDAO = iManager.getTopicoDAO();
+            topicos = iTopicoDAO.buscarTopicosPorAssunto(assunto);
             iManager.confirmarTransação();
             iManager.encerrar();
-            return assunto;
+            return topicos;
         } catch (Exception e) {
             iManager.abortarTransação();
             throw e;
         } finally {
+            iManager.encerrar();
+        }
+    }
+
+    @Override
+    public Topico buscarTopicoPorId(long id) {
+        IDaoManager iManager = new JdbcDaoManager();
+        ITopicoDAO iTopicoDAO;
+        Topico topico;
+        try {
+            iTopicoDAO = iManager.getTopicoDAO();
+            topico = iTopicoDAO.buscarTopicoPorId(id);
             iManager.confirmarTransação();
+            iManager.encerrar();
+            return topico;
+        } catch (Exception e) {
+            iManager.abortarTransação();
+            throw e;
+        } finally {
             iManager.encerrar();
         }
     }   

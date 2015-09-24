@@ -16,7 +16,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
     }
     
     @Override
-    public Usuario inserirUsuario(Usuario user) {
+    public boolean inserirUsuario(Usuario user) {
         String sql;
         sql = "INSERT INTO usuario("
                 + "nome,"
@@ -31,7 +31,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getSenha());
             ps.executeQuery();
-            return user;
+            return true;
 
         } catch (Exception ex) {
             throw new ForumException("Ocorreu um erro ao inserir um usuario " + ex.getMessage());

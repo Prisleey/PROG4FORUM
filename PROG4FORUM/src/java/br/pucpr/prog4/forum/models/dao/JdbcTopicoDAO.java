@@ -17,7 +17,7 @@ public class JdbcTopicoDAO implements ITopicoDAO {
     }
 
     @Override
-    public Topico inserirTopico(Topico topico) {
+    public boolean inserirTopico(Topico topico) {
         String sql;
         sql = "INSERT INTO topico("
                 + "assunto,"
@@ -32,7 +32,7 @@ public class JdbcTopicoDAO implements ITopicoDAO {
             ps.setString(2, topico.getTopico());
             ps.setString(3, topico.getRespostas().get(0).getResposta());
             ps.executeQuery();
-            return topico;
+            return true;
 
         } catch (Exception ex) {
             throw new ForumException("Ocorreu um erro ao inserir um usuario " + ex.getMessage());

@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public final class Conexao {
+
     private Connection conexao;
     public static Conexao instance;
 
@@ -15,6 +16,7 @@ public final class Conexao {
         } 
         return instance; 
     }
+
     public Conexao() throws ForumException {
         iniciar(); 
     }
@@ -34,6 +36,7 @@ public final class Conexao {
                     e.getMessage());
         }
     }
+
     public Connection getConnection() {
         if(conexao != null) {
             return conexao;

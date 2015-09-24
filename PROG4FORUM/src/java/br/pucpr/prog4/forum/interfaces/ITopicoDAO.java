@@ -4,7 +4,7 @@ import br.pucpr.prog4.forum.models.Topico;
 import java.util.List;
 
 public interface ITopicoDAO {
-    public Topico inserirTopico(Topico topico);
+    public boolean inserirTopico(Topico topico);
     public List<Topico> buscarTopicos(); 
     public List<Topico> buscarTopicosPorAssunto(Assunto assunto); 
     public Topico buscarTopicoPorId(long id); 

@@ -11,8 +11,9 @@ public class Usuario {
     private List<Topico> topicos;
     private List<Mensagem> mensagens;
 
-    public Usuario() {
-        
+    public Usuario(String nome, String email) {
+        this.nomeUser = nome;
+        this.email = email;
     }
 
     public Long getId() {

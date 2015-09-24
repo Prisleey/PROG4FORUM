@@ -9,8 +9,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class JdbcDaoManager implements IDaoManager {
+
     private Connection conexao;
-    
     private JdbcAssuntoDAO assuntoDAO;
     private JdbcUsuarioDAO usuarioDAO;
     private JdbcTopicoDAO topicoDAO;

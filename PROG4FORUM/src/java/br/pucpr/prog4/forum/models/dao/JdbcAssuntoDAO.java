@@ -8,23 +8,23 @@ import java.util.List;
 public class JdbcAssuntoDAO implements IAssuntoDAO {
 
     @Override
-    public Assunto inserirAssunto(Assunto assunto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean inserirAssunto(Assunto assunto) {
+        return true;
     }
 
     @Override
     public List<Assunto> buscarAssuntos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public List<Topico> buscarTopicosAssunto(Assunto assunto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public Assunto buscarAssuntoPorId(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
     
 }
