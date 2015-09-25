@@ -21,7 +21,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
         sql = "INSERT INTO usuario("
                 + "nome,"
                 + "email,"
-                + "senha"
+                + "senha)"
                 + " VALUES (?, ?, ?)";
 
         PreparedStatement ps;
@@ -30,7 +30,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
             ps.setString(1, user.getNomeUser());
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getSenha());
-            ps.executeQuery();
+            ps.executeUpdate();
             return true;
 
         } catch (Exception ex) {
