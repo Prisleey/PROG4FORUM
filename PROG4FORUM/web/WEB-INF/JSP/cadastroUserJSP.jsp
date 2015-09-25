@@ -131,23 +131,23 @@
     <div id="formCadastro">
         <h2>Cadastro de Usuário</h2>
 
-        <form id="RegisterUserForm" action="cadastroUserJSP" method="POST">
+        <form id="RegisterUserForm" action="CadastroUser" method="POST">
             <fieldset>
                 <p>
-                    <label for="name">Nome</label>
+                    <label for="name"><font size="4px">Nome</font></label>
                     <input id="name" name="name" type="text" class="text" value="" />
                 </p>
                 <p>
-                    <label for="email">Email</label>
+                    <label for="email"><font size="4px">Email</font></label>
                     <input id="email" name="email" type="email" class="text" value="" />
                 </p>
-
                 <p>
-                    <label for="password">Password</label>
+                    <label for="pass"><font size="4px">Password</font></label>
                     <input id="password" name="password" class="text" type="password" />
                 </p>
                 <p>
                     <button id="brSalvar" type="submit">Salvar</button>
+                    <input type="submit" value="OPA">
                 </p>
             </fieldset>
         </form>

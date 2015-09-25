@@ -25,12 +25,12 @@ public final class Conexao {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String url;
-            url = "jdbc:mysql://localhost:3306/lojaprisley";
+            url = "jdbc:mysql://localhost:3306/forum";
             conexao = DriverManager.getConnection(url, "root", "root");
-            
+
             conexao.setAutoCommit(false);
         } catch (ClassNotFoundException e) {
-            throw new ForumException("Erro JDBC");
+            throw new ForumException("Erro conector JDBC");
         } catch(SQLException e) {
             throw new ForumException("Ocorreu um erro ao conectar ao banco de dados:" + 
                     e.getMessage());

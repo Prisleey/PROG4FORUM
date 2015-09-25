@@ -16,7 +16,6 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
             iUserDAO = iManager.getUsuarioDAO();
             iUserDAO.inserirUsuario(pessoa);
             iManager.confirmarTransação();
-            iManager.encerrar();
             return true;
         }catch (Exception e) {
             iManager.abortarTransação();
@@ -36,7 +35,6 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
             iUserDAO = iManager.getUsuarioDAO();
             List<Usuario> users = iUserDAO.getTodosUsuarios();
             iManager.confirmarTransação();
-            iManager.encerrar();
             return users;
         } catch (Exception e) {
             iManager.abortarTransação();
@@ -56,7 +54,6 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
             iUserDAO = iManager.getUsuarioDAO();
             Usuario user = iUserDAO.getUsuarioPorId(id);
             iManager.confirmarTransação();
-            iManager.encerrar();
             return user;
         } catch (Exception e) {
             iManager.abortarTransação();
@@ -76,10 +73,12 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
             iUserDAO = iManager.getUsuarioDAO();
             Usuario user = iUserDAO.getUsuarioLogin(email, senha);
             iManager.confirmarTransação();
-            iManager.encerrar();
             return user;
         } catch (Exception e) {
+            iManager.abortarTransação();
             throw e;
+        } finally {
+            iManager.encerrar();
         }
     }   
 }
