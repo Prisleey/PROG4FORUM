@@ -114,7 +114,7 @@
           position: relative;
           }
 
-    fieldset label.infield /* .infield label added by JS */ {
+    fieldset label.infield {
             color: #333;
             text-shadow: 0px 1px 0px #fff;
             position: absolute;

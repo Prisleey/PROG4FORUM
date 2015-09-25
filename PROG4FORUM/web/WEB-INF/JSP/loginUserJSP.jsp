@@ -21,7 +21,7 @@
 
     body { font-family: Helvetica, Arial, sans-serif; font-size: 12px; }
 
-            #formCadastro {
+            #formLogin {
                             color: #fff;
                 background: #2d2d2d;
                 background: -webkit-gradient(
@@ -45,12 +45,12 @@
                             width: 430px;
                 }
 
-     #formCadastro a {
+     #formLogin a {
           color: #8c910b;
           text-shadow: 0px -1px 0px #000;
           }
 
-    #formCadastro fieldset {
+    #formLogin fieldset {
           padding: 20px;
           }
 
@@ -97,7 +97,7 @@
             background-position: 4px -46px, 0px 0px; 
             }
 
-    #formCadastro h2 {
+    #formLogin h2 {
             color: #fff;
             text-shadow: 0px -1px 0px #000;
             border-bottom: solid #181818 1px;
@@ -110,7 +110,7 @@
             font-family: Lucida Grande, Helvetica, Arial, sans-serif;
             }
 
-    #formCadastro p {
+    #formLogin p {
           position: relative;
           }
 
@@ -127,10 +127,10 @@
     </style>
 
 </head>
-    <div id="formCadastro">
+    <div id="formLogin">
         <h2>Login de Usuário</h2>
 
-        <form id="RegisterUserForm" action="LoginUser" method="POST">
+        <form action="LoginUser" method="POST">
             <fieldset>
                 <p>
                     <label for="email"><font size="4px">Email</font></label>
