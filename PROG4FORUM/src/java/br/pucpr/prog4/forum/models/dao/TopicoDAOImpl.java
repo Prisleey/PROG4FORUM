@@ -15,7 +15,6 @@ public class TopicoDAOImpl implements ITopicoDAO {
         try {
             iTopicoDAO.inserirTopico(topico);
             iManager.confirmarTransação();
-            iManager.encerrar();
             return true;
         }catch(Exception e){
             iManager.abortarTransação();
@@ -35,7 +34,6 @@ public class TopicoDAOImpl implements ITopicoDAO {
             iTopicoDAO = iManager.getTopicoDAO();
             topicos = iTopicoDAO.buscarTopicos();
             iManager.confirmarTransação();
-            iManager.encerrar();
             return topicos;
         } catch (Exception e) {
             iManager.abortarTransação();
@@ -54,7 +52,6 @@ public class TopicoDAOImpl implements ITopicoDAO {
             iTopicoDAO = iManager.getTopicoDAO();
             topicos = iTopicoDAO.buscarTopicosPorAssunto(assunto);
             iManager.confirmarTransação();
-            iManager.encerrar();
             return topicos;
         } catch (Exception e) {
             iManager.abortarTransação();
@@ -73,7 +70,6 @@ public class TopicoDAOImpl implements ITopicoDAO {
             iTopicoDAO = iManager.getTopicoDAO();
             topico = iTopicoDAO.buscarTopicoPorId(id);
             iManager.confirmarTransação();
-            iManager.encerrar();
             return topico;
         } catch (Exception e) {
             iManager.abortarTransação();

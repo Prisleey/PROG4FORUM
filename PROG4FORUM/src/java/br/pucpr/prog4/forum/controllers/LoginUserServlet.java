@@ -19,17 +19,14 @@ public class LoginUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("OPAGET");
         RequestDispatcher rd;
         rd = request.getRequestDispatcher("/WEB-INF/JSP/loginUserJSP.jsp");
         rd.forward(request, response);
-        System.out.println("OPAGET");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("OPA");
         UsuarioDAOImpl userDAO = new UsuarioDAOImpl();
         Usuario usuario = userDAO.getUsuarioLogin(request.getParameter("email"),request.getParameter("senha")); 
         request.getSession().setAttribute("usuario", usuario);

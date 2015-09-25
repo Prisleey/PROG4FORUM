@@ -123,27 +123,27 @@
             left: 35px !important;
             line-height: 29px;
         }
-
     </style>
-
 </head>
-    <div id="formLogin">
-        <h2>Login de Usuário</h2>
+    <body>
+        <div id="formLogin">
+            <h2>Login de Usuário</h2>
 
-        <form action="LoginUser" method="POST">
-            <fieldset>
-                <p>
-                    <label for="email"><font size="4px">Email</font></label>
-                    <input id="email" name="email" type="email" class="text" value="" />
-                </p>
-                <p>
-                    <label for="pass"><font size="4px">Password</font></label>
-                    <input id="password" name="password" class="text" type="password" />
-                </p>
-                <p>
-                    <button id="brSalvar" type="submit">Entrar</button>
-                </p>
-            </fieldset>
-        </form>
-    </div>
+            <form action="LoginUser" method="POST">
+                <fieldset>
+                    <p>
+                        <label for="email"><font size="4px">Email</font></label>
+                        <input id="email" name="email" type="email" class="text" value="" />
+                    </p>
+                    <p>
+                        <label for="pass"><font size="4px">Password</font></label>
+                        <input id="password" name="password" class="text" type="password" />
+                    </p>
+                    <p>
+                        <button id="brSalvar" type="submit">Entrar</button>
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+    </body>
 </html>

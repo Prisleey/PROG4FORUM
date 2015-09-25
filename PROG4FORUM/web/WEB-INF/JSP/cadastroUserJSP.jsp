@@ -123,11 +123,15 @@
             left: 35px !important;
             line-height: 29px;
         }
-
+    .but:hover {
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.15));
+    cursor: pointer;
+    }
+        
     </style>
 
 </head>
-    
+    <body>
     <div id="formCadastro">
         <h2>Cadastro de Usuário</h2>
 
@@ -146,10 +150,11 @@
                     <input id="password" name="password" class="text" type="password" />
                 </p>
                 <p>
-                    <button id="brSalvar" type="submit">Salvar</button>
-                    <input type="submit" value="OPA">
+                    <button id="brSalvar" type="submit">Cadastrar</button>
+                    
                 </p>
             </fieldset>
         </form>
     </div>
+    </body>
 </html>

@@ -16,12 +16,13 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
             iUserDAO = iManager.getUsuarioDAO();
             iUserDAO.inserirUsuario(pessoa);
             iManager.confirmarTransação();
-            iManager.encerrar();
             return true;
         }catch (Exception e) {
             iManager.abortarTransação();
             throw e;
-        } 
+        } finally {
+            iManager.encerrar();
+        }
     }
 
     @Override
@@ -38,7 +39,6 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
             iManager.abortarTransação();
             throw e;
         } finally {
-            iManager.confirmarTransação();
             iManager.encerrar();
         }
     }
@@ -57,7 +57,6 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
             iManager.abortarTransação();
             throw e;
         } finally {
-            iManager.confirmarTransação();
             iManager.encerrar();
         }
     }

@@ -17,13 +17,11 @@ public class AssuntoDAOImpl implements IAssuntoDAO {
             iAssuntoDAO = iManager.getAssuntoDAO();
             iAssuntoDAO.inserirAssunto(assunto);
             iManager.confirmarTransação();
-            iManager.encerrar();
             return true;
         }catch (Exception e) {
             iManager.abortarTransação();
             throw e;
         } finally {
-            iManager.confirmarTransação();
             iManager.encerrar();
         }
     }
@@ -37,13 +35,11 @@ public class AssuntoDAOImpl implements IAssuntoDAO {
             iAssuntoDAO = iManager.getAssuntoDAO();
             List<Assunto> assuntos = iAssuntoDAO.buscarAssuntos();
             iManager.confirmarTransação();
-            iManager.encerrar();
             return assuntos;
         } catch (Exception e) {
             iManager.abortarTransação();
             throw e;
         } finally {
-            iManager.confirmarTransação();
             iManager.encerrar();
         }
     }
@@ -58,13 +54,11 @@ public class AssuntoDAOImpl implements IAssuntoDAO {
             iAssuntoDAO = iManager.getAssuntoDAO();
             topicos = iAssuntoDAO.buscarTopicosAssunto(assunto);
             iManager.confirmarTransação();
-            iManager.encerrar();
             return topicos;
         } catch (Exception e) {
             iManager.abortarTransação();
             throw e;
         } finally {
-            iManager.confirmarTransação();
             iManager.encerrar();
         }
     }
@@ -78,13 +72,11 @@ public class AssuntoDAOImpl implements IAssuntoDAO {
             iAssuntoDAO = iManager.getAssuntoDAO();
             Assunto assunto = iAssuntoDAO.buscarAssuntoPorId(id);
             iManager.confirmarTransação();
-            iManager.encerrar();
             return assunto;
         } catch (Exception e) {
             iManager.abortarTransação();
             throw e;
         } finally {
-            iManager.confirmarTransação();
             iManager.encerrar();
         }
     }   
