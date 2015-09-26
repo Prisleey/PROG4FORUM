@@ -29,6 +29,7 @@ public class LoginUserServlet extends HttpServlet {
             throws ServletException, IOException {
         UsuarioDAOImpl userDAO = new UsuarioDAOImpl();
         Usuario usuario = userDAO.getUsuarioLogin(request.getParameter("email"),request.getParameter("senha")); 
-        request.getSession().setAttribute("usuario", usuario);
+        request.getSession().setAttribute("email", request.getParameter("email"));
+        response.sendRedirect("index");
     }
 }

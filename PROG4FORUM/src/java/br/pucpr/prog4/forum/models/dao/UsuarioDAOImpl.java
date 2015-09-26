@@ -8,13 +8,13 @@ import java.util.List;
 public class UsuarioDAOImpl implements IUsuarioDAO{
 
     @Override
-    public boolean inserirUsuario(Usuario pessoa) {
+    public boolean inserirUsuario(Usuario user) {
         IDaoManager iManager = new JdbcDaoManager();
         IUsuarioDAO iUserDAO;
         try {
             iManager.iniciar();
             iUserDAO = iManager.getUsuarioDAO();
-            iUserDAO.inserirUsuario(pessoa);
+            iUserDAO.inserirUsuario(user);
             iManager.confirmarTransação();
             return true;
         }catch (Exception e) {

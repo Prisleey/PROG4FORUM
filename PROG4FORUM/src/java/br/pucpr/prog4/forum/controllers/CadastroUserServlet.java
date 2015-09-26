@@ -27,9 +27,10 @@ public class CadastroUserServlet extends HttpServlet {
         String nomeLogin, email;
         IUsuarioDAO impl = new UsuarioDAOImpl();
 
-        nomeLogin = request.getParameter("name");
+        nomeLogin = request.getParameter("login");
         email = request.getParameter("email");
         Usuario usuario = new Usuario(nomeLogin, email);
+        usuario.setNomeUser("nome");
         usuario.setSenha(request.getParameter("password"));
         impl.inserirUsuario(usuario);
         response.sendRedirect("index");

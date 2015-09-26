@@ -138,8 +138,12 @@
         <form id="RegisterUserForm" action="CadastroUser" method="POST">
             <fieldset>
                 <p>
-                    <label for="name"><font size="4px">Nome</font></label>
-                    <input id="name" name="name" type="text" class="text" value="" />
+                    <label for="nameUser"><font size="4px">Nome</font></label>
+                    <input id="nome" name="nome" type="text" class="text" value="" />
+                </p>
+                <p>
+                    <label for="nomeLogin"><font size="4px">Login</font></label>
+                    <input id="login" name="login" type="text" class="text" value="" />
                 </p>
                 <p>
                     <label for="email"><font size="4px">Email</font></label>

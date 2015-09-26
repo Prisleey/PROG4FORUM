@@ -23,8 +23,9 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
         sql = "INSERT INTO usuario("
                 + "nome,"
                 + "email,"
-                + "senha)"
-                + " VALUES (?, ?, ?)";
+                + "senha,"
+                + "nomeLogin)"
+                + " VALUES (?, ?, ?, ?)";
 
         PreparedStatement ps;
         try {
@@ -32,6 +33,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
             ps.setString(1, user.getNomeUser());
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getSenha());
+            ps.setString(4, user.getNomeLogin());
             ps.executeUpdate();
             return true;
 
@@ -56,7 +58,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
         ResultSet rs = null;
         Usuario usuario = null;
         try {
-            String select = "SELECT id, nomeUser, email, senha, nomeLogin from usuario WHERE email = ? and senha = ?";
+            String select = "SELECT id, nome, email, senha, nomeLogin from usuario WHERE email = ? and senha = ?";
             ps = conexao.prepareStatement(select);
             ps.setString(1,email);
             ps.setString(2,senha);
@@ -76,14 +78,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
         user.setId(rs.getLong("id"));
         user.setSenha(rs.getString("senha"));
         user.setNomeUser("nome");
-        
-        /*
-        Usuario usuario = new Usuario(rs.getString("nome"),rs.getString("email"));
-        usuario.setCpf(rs.getLong("cpf"));
-        usuario.setId(rs.getLong("id"));
-        usuario.setIdade(rs.getInt("idade"));
-        usuario.setSenha(rs.getString("senha"));
-        */
+        user.setNomeLogin("nomeLogin");
         return user;
     }
 }
