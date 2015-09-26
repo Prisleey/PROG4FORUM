@@ -19,6 +19,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
     
     @Override
     public boolean inserirUsuario(Usuario user) {
+        conexao = Conexao.getInstance().getConnection();
         String sql;
         sql = "INSERT INTO usuario("
                 + "nome,"
@@ -54,15 +55,25 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
 
     @Override
     public Usuario getUsuarioLogin(String email, String senha) {
+        conexao = Conexao.getInstance().getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
         Usuario usuario = null;
         try {
-            String select = "SELECT id, nome, email, senha, nomeLogin from usuario WHERE email = ? and senha = ?";
-            ps = conexao.prepareStatement(select);
+            String sql;
+            sql = "SELECT "
+                    + "id, "
+                    + "nome, "
+                    + "email, "
+                    + "senha, "
+                    + "nomeLogin "
+                    + "FROM usuario "
+                    + "WHERE email = ? and senha = ?";
+            ps = conexao.prepareStatement(sql);
+            conexao = null;
             ps.setString(1,email);
             ps.setString(2,senha);
-            
+
             rs = ps.executeQuery();
             if(rs.next()) {
                 usuario = populateObject(rs);

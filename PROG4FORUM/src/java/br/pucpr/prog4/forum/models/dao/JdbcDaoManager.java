@@ -34,6 +34,7 @@ public class JdbcDaoManager implements IDaoManager {
         try {
             if(!conexao.isClosed()) {
                 conexao.close();
+                conexao = null;
             }
         } catch (SQLException e) {
             throw new ForumException("Erro " + e.getMessage());

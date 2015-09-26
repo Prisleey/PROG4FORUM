@@ -30,7 +30,7 @@ public class CadastroUserServlet extends HttpServlet {
         nomeLogin = request.getParameter("login");
         email = request.getParameter("email");
         Usuario usuario = new Usuario(nomeLogin, email);
-        usuario.setNomeUser("nome");
+        usuario.setNomeUser(request.getParameter("nome"));
         usuario.setSenha(request.getParameter("password"));
         impl.inserirUsuario(usuario);
         response.sendRedirect("index");
