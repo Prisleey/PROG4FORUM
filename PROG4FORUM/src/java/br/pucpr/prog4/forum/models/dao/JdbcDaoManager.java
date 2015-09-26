@@ -6,6 +6,7 @@ import br.pucpr.prog4.forum.interfaces.IDaoManager;
 import br.pucpr.prog4.forum.interfaces.ITopicoDAO;
 import br.pucpr.prog4.forum.interfaces.IUsuarioDAO;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class JdbcDaoManager implements IDaoManager {
@@ -16,17 +17,29 @@ public class JdbcDaoManager implements IDaoManager {
     private JdbcTopicoDAO topicoDAO;
 
     public JdbcDaoManager() {
-        
+        this.assuntoDAO = new JdbcAssuntoDAO();
+        this.usuarioDAO = new JdbcUsuarioDAO();
+        this.topicoDAO = new JdbcTopicoDAO();
     }
 
     @Override
     public void iniciar() {
-        if(conexao == null) {
-            conexao = Conexao.getInstance().getConnection();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String url;
+            url = "jdbc:mysql://localhost:3306/forum";
+            conexao = DriverManager.getConnection(url, "root", "root");
+
+            conexao.setAutoCommit(false);
+            assuntoDAO.setConexao(conexao);
+            usuarioDAO.setConexao(conexao);
+            topicoDAO.setConexao(conexao);
+        } catch (ClassNotFoundException e) {
+            throw new ForumException("Erro conector JDBC " + e.getMessage());
+        } catch(SQLException e) {
+            throw new ForumException("Ocorreu um erro ao conectar ao banco de dados: " + 
+                    e.getMessage());
         }
-        this.topicoDAO = new JdbcTopicoDAO();
-        this.usuarioDAO = new JdbcUsuarioDAO(conexao);
-        this.assuntoDAO = new JdbcAssuntoDAO();
     }
 
     @Override

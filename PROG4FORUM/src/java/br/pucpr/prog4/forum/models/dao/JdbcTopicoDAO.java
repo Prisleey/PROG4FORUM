@@ -11,8 +11,12 @@ import java.util.List;
 public class JdbcTopicoDAO implements ITopicoDAO {
 
     private Connection conexao;
-    
-    public void setConexão(Connection conexao) {
+
+    public JdbcTopicoDAO() {
+        
+    }
+
+    public void setConexao(Connection conexao) {
         this.conexao = conexao;
     }
 

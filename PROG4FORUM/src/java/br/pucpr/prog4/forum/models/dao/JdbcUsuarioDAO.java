@@ -13,13 +13,16 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
 
     private Connection conexao;
 
-    public JdbcUsuarioDAO(Connection conexao) {
+    public JdbcUsuarioDAO() {
+        
+    }
+
+    public void setConexao(Connection conexao) {
         this.conexao = conexao;
     }
     
     @Override
     public boolean inserirUsuario(Usuario user) {
-        conexao = Conexao.getInstance().getConnection();
         String sql;
         sql = "INSERT INTO usuario("
                 + "nome,"
@@ -40,6 +43,12 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
 
         } catch (Exception ex) {
             throw new ForumException("Ocorreu um erro ao inserir um usuario " + ex.getMessage());
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                
+            }
         }
     }
 
@@ -55,7 +64,6 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
 
     @Override
     public Usuario getUsuarioLogin(String email, String senha) {
-        conexao = Conexao.getInstance().getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
         Usuario usuario = null;
@@ -79,8 +87,14 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
                 usuario = populateObject(rs);
             }
             return usuario;
-        }catch(SQLException e){
+        } catch(SQLException e) {
             throw new ForumException("Erro com o banco de dados, tente novamente mais tarde" + e.getMessage());
+        } finally {
+            /*try {
+                conexao.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(JdbcUsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }*/
         }
     }
 
