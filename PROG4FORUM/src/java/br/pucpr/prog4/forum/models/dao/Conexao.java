@@ -32,7 +32,7 @@ public final class Conexao {
         } catch (ClassNotFoundException e) {
             throw new ForumException("Erro conector JDBC");
         } catch(SQLException e) {
-            throw new ForumException("Ocorreu um erro ao conectar ao banco de dados:" + 
+            throw new ForumException("Ocorreu um erro ao conectar ao banco de dados: " + 
                     e.getMessage());
         }
     }

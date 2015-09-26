@@ -3,7 +3,6 @@ package br.pucpr.prog4.forum.controllers;
 import br.pucpr.prog4.forum.models.Usuario;
 import br.pucpr.prog4.forum.models.dao.UsuarioDAOImpl;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
