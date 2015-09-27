@@ -5,7 +5,6 @@ import br.pucpr.prog4.forum.interfaces.IAssuntoDAO;
 import br.pucpr.prog4.forum.models.Assunto;
 import br.pucpr.prog4.forum.models.Topico;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.util.List;
 
