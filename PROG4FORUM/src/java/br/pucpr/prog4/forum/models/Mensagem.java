@@ -1,11 +1,25 @@
 package br.pucpr.prog4.forum.models;
 
+import java.util.Date;
+
 public class Mensagem {
 
     private Long id;
+    private Date dataMsg;
+    private Topico topico;
     private String mensagem;
     private Usuario usuario;
 
+    public Mensagem() {}
+
+    public Date getDataMsg() {
+        return dataMsg;
+    }
+
+    public void setDataMsg(Date dataMsg) {
+        this.dataMsg = dataMsg;
+    }
+    
     public Usuario getUsuario() {
         return usuario;
     }
@@ -14,8 +28,13 @@ public class Mensagem {
         this.usuario = usuario;
     }
 
-    public Mensagem() {}
+    public Topico getTopico() {
+        return topico;
+    }
 
+    public void setTopico(Topico topico) {
+        this.topico = topico;
+    }
 
     public String getMensagem() {
         return mensagem;

@@ -6,6 +6,8 @@ import br.pucpr.prog4.forum.models.Assunto;
 import br.pucpr.prog4.forum.models.Topico;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class JdbcTopicoDAO implements ITopicoDAO {
@@ -56,5 +58,16 @@ public class JdbcTopicoDAO implements ITopicoDAO {
     @Override
     public Topico buscarTopicoPorId(long id) {
         return null;
+    }
+
+    private Topico populateObject(ResultSet rs) throws SQLException {
+        /*Topico topi = new Topico(rs.getString("nomeLogin"), rs.getString("email"));
+        topi.setId(rs.getLong("id"));
+        topi.setTopico(rs.getString("topico"));
+        //topi.setAssunto();
+        topi.setRespostas(rs.);
+        */
+        return null;
+        
     }
 }

@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JdbcUsuarioDAO implements IUsuarioDAO {
@@ -39,34 +40,66 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
             ps.setString(3, user.getSenha());
             ps.setString(4, user.getNomeLogin());
             ps.executeUpdate();
-            return true;
 
         } catch (Exception ex) {
             throw new ForumException("Ocorreu um erro ao inserir um usuario " + ex.getMessage());
-        } finally {
-            try {
-                conexao.close();
-            } catch (SQLException ex) {
-                
-            }
         }
+        return true;
     }
 
     @Override
     public List<Usuario> getTodosUsuarios() {
-        return null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<Usuario> users = new ArrayList<Usuario>();
+
+        try {
+            String sql;
+            sql = "SELECT * FROM usuario";
+            ps = conexao.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                users.add(populateObject(rs));
+            }
+        }catch(SQLException e){
+            throw new ForumException("Problemas no sistema, por favor tente mais tarde");
+        }
+        return users;
     }
 
     @Override
     public Usuario getUsuarioPorId(long id) {
-        return null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Usuario user = null;
+        try {
+            String sql;
+            sql = "SELECT "
+                    + "id, "
+                    + "nome, "
+                    + "email, "
+                    + "senha, "
+                    + "nomeLogin, "
+                    + "FROM usuario "
+                    + "WHERE id = ?";
+            ps = conexao.prepareStatement(sql);
+            ps.setLong(1, id);
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                user = populateObject(rs);
+            }
+
+        } catch (SQLException e) {
+            throw new ForumException("Erro com o banco de dados, tente novamente mais tarde " + e.getMessage());
+        }
+        return user;
     }
 
     @Override
     public Usuario getUsuarioLogin(String email, String senha) {
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Usuario usuario = null;
+        Usuario user = null;
         try {
             String sql;
             sql = "SELECT "
@@ -78,24 +111,17 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
                     + "FROM usuario "
                     + "WHERE email = ? and senha = ?";
             ps = conexao.prepareStatement(sql);
-            conexao = null;
             ps.setString(1,email);
             ps.setString(2,senha);
 
             rs = ps.executeQuery();
             if(rs.next()) {
-                usuario = populateObject(rs);
+                user = populateObject(rs);
             }
-            return usuario;
         } catch(SQLException e) {
             throw new ForumException("Erro com o banco de dados, tente novamente mais tarde" + e.getMessage());
-        } finally {
-            /*try {
-                conexao.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(JdbcUsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
         }
+        return user;
     }
 
     private Usuario populateObject(ResultSet rs) throws SQLException {

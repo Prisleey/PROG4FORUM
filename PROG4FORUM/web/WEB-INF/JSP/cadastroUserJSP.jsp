@@ -12,62 +12,62 @@
 
     <style type="text/css">
 
-    html, body, h1, form, fieldset, input {
-      margin: 0;
-      padding: 0;
-      border: none;
-      }
+        html, body, h1, form, fieldset, input {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
 
-    body { font-family: Helvetica, Arial, sans-serif; font-size: 12px; }
+        body { font-family: Helvetica, Arial, sans-serif; font-size: 12px; }
 
-            #formCadastro {
-                            color: #fff;
-                background: #2d2d2d;
-                background: -webkit-gradient(
-                                linear,
-                                left bottom,
-                                left top,
-                                color-stop(0, rgb(60,60,60)),
-                                color-stop(0.74, rgb(43,43,43)),
-                                color-stop(1, rgb(60,60,60))
-                            );
-                background: -moz-linear-gradient(
-                                center bottom,
-                                rgb(60,60,60) 0%,
-                                rgb(43,43,43) 74%,
-                                rgb(60,60,60) 100%
-                            );
-                -moz-border-radius: 10px;
-                -webkit-border-radius: 10px;
-                            border-radius: 10px;
-                margin: 10px;
-                            width: 430px;
-                }
+        #formCadastro {
+            color: #fff;
+            background: #2d2d2d;
+            background: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0, rgb(60,60,60)),
+                color-stop(0.74, rgb(43,43,43)),
+                color-stop(1, rgb(60,60,60))
+            );
+            background: -moz-linear-gradient(
+                center bottom,
+                rgb(60,60,60) 0%,
+                rgb(43,43,43) 74%,
+                rgb(60,60,60) 100%
+            );
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            margin: 10px;
+            width: 430px;
+        }
 
-     #formCadastro a {
-          color: #8c910b;
-          text-shadow: 0px -1px 0px #000;
-          }
+        #formCadastro a {
+            color: #8c910b;
+            text-shadow: 0px -1px 0px #000;
+        }
 
-    #formCadastro fieldset {
-          padding: 20px;
-          }
+        #formCadastro fieldset {
+            padding: 20px;
+        }
 
-    input.text {
-          -webkit-border-radius: 15px;
-          -moz-border-radius: 15px;
-          border-radius: 15px;
-          border:solid 1px #444;
-          font-size: 14px;
-          width: 90%;
-          padding: 7px 8px 7px 30px;
-          -moz-box-shadow: 0px 1px 0px #777;
-          -webkit-box-shadow: 0px 1px 0px #777;
+        input.text {
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            border:solid 1px #444;
+            font-size: 14px;
+            width: 90%;
+            padding: 7px 8px 7px 30px;
+            -moz-box-shadow: 0px 1px 0px #777;
+            -webkit-box-shadow: 0px 1px 0px #777;
 
-               center bottom,
-               rgb(225,225,225) 0%,
-               rgb(215,215,215) 54%,
-               rgb(173,173,173) 100%
+            center bottom,
+            rgb(225,225,225) 0%,
+            rgb(215,215,215) 54%,
+            rgb(173,173,173) 100%
             );
 
             linear,
@@ -126,6 +126,52 @@
     background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.15));
     cursor: pointer;
     }
+    
+    .botao {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-webkit-border-top-left-radius:19px;
+	-moz-border-radius-topleft:19px;
+	border-top-left-radius:19px;
+	-webkit-border-top-right-radius:19px;
+	-moz-border-radius-topright:19px;
+	border-top-right-radius:19px;
+	-webkit-border-bottom-right-radius:19px;
+	-moz-border-radius-bottomright:19px;
+	border-bottom-right-radius:19px;
+	-webkit-border-bottom-left-radius:19px;
+	-moz-border-radius-bottomleft:19px;
+	border-bottom-left-radius:19px;
+	text-indent:-4.27px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	font-style:normal;
+	height:22px;
+	line-height:22px;
+	width:73px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+    }
+    .botao{
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+        background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+        background-color:#dfdfdf;
+    }
+    .botao:active {
+        position:relative;
+        top:1px;
+    }
         
     </style>
 
@@ -153,8 +199,8 @@
                     <input id="password" name="password" class="text" type="password" />
                 </p>
                 <p>
-                    <button id="brSalvar" type="submit">Cadastrar</button>
-                    
+                    <button id="brSalvar" class="botao" type="submit">Cadastrar</button>
+                    <a href="index" class="botao">Voltar</a>
                 </p>
             </fieldset>
         </form>
