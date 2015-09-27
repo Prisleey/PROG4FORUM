@@ -141,8 +141,8 @@
             <form action="" method="POST">
                 <fieldset>
                     <c:choose>
-                        <c:when test="${not empty email}">
-                            <h3>Olá <c:out value="${email}"/></h3>
+                        <c:when test="${not empty usuario}">
+                            <h3>Olá <c:out value="${usuario.nomeLogin}"/></h3>
                             <div id="divAssuntos">
                                 <!-- falta mostrar os assuntos na tela!!!!!! -->
                                 <c:forEach var="assunto" items="${assuntos}"> 

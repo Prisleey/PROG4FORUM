@@ -128,8 +128,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
         Usuario user = new Usuario(rs.getString("nomeLogin"), rs.getString("email"));
         user.setId(rs.getLong("id"));
         user.setSenha(rs.getString("senha"));
-        user.setNomeUser("nome");
-        user.setNomeLogin("nomeLogin");
+        user.setNomeUser(rs.getString("nome"));
         return user;
     }
 }
