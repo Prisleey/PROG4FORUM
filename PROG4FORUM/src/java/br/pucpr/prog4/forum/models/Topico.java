@@ -17,6 +17,10 @@ public class Topico {
         this.dataCriacao = dataCriacao;
     }
 
+    public int qtdeMensagens() {
+        return respostas.size();
+    }
+    
     public Date getDataCriacao() {
         return dataCriacao;
     }

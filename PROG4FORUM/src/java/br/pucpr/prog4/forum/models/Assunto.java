@@ -1,4 +1,5 @@
 package br.pucpr.prog4.forum.models;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,8 +15,13 @@ public class Assunto {
         this.assunto = assunto;
         this.autor = autor;
         this.dataAssunto = data;
+        this.topicos = new ArrayList<Topico>();
     }
 
+    public int topicoSize() {
+        return topicos.size();
+    }
+    
     public Date getDataAssunto() {
         return dataAssunto;
     }

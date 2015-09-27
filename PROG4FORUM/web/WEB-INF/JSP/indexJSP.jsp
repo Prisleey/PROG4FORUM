@@ -41,7 +41,7 @@
                     -webkit-border-radius: 10px;
                                 border-radius: 10px;
                     margin: 10px;
-                                width: 250px;
+                                width: 650px;
                     }
 
         #formBt p {
@@ -145,9 +145,24 @@
                             <h3>Olá <c:out value="${usuario.nomeLogin}"/></h3>
                             <div id="divAssuntos">
                                 <!-- falta mostrar os assuntos na tela!!!!!! -->
-                                <c:forEach var="assunto" items="${assuntos}">
-                                    <a href=${assunto.id}>${assunto.assunto}</a><br /> 
-                                </c:forEach> 
+                                <table border="1" style="width:100%">
+                                    <tr>
+                                        <td>Assunto</td>
+                                        <td>Quantidade Tópicos</td>
+                                        <!--<td>Quantidade Mensagens</td>-->
+                                        <td>Data Última Postagem</td>
+                                        <td>Usuário</td>
+                                    </tr>
+                                        <c:forEach var="assunto" items="${assuntos}">
+                                    <tr>
+                                        <td><a href=${assunto.id}> ${assunto.assunto}  </a></td><br />
+                                        <td>${topicos.size}</td>
+                                        <!--<td>$</td>-->
+                                        <td>${autor.nomeLogin}</td>
+                                        <td>${assunto.dataAssunto}</td>
+                                    </tr>
+                                        </c:forEach>
+                                </table>
                                 <br>
                             </div>
                             <a href="CadastroAssunto" class="botao">Novo</a>

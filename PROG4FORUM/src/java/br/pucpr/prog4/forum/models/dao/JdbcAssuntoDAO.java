@@ -4,6 +4,7 @@ import br.pucpr.prog4.forum.exception.ForumException;
 import br.pucpr.prog4.forum.interfaces.IAssuntoDAO;
 import br.pucpr.prog4.forum.models.Assunto;
 import br.pucpr.prog4.forum.models.Topico;
+import br.pucpr.prog4.forum.models.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -77,24 +78,32 @@ public class JdbcAssuntoDAO implements IAssuntoDAO {
 
     @Override
     public Assunto buscarAssuntoPorId(long id) {
-        return null;
+        JdbcDaoManager.getInstance().iniciar();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Assunto assunto = null;
+        try {
+            String sql;
+            sql = "SELECT * "
+                    + "FROM assunto "
+                    + "WHERE id = ?";
+            ps = conexao.prepareStatement(sql);
+            ps.setLong(1, id);
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                assunto = populateObject(rs);
+            }
+
+        } catch (SQLException e) {
+            throw new ForumException("Erro com o banco de dados, tente novamente mais tarde " + e.getMessage());
+        }
+        return assunto;
     }
 
     private Assunto populateObject(ResultSet rs) throws SQLException {
         Assunto assunto;
         assunto = new Assunto(rs.getString("assunto"), JdbcDaoManager.getInstance().getUsuarioDAO().getUsuarioPorId(rs.getLong("id")), rs.getDate("dataCriacao"));
-        /*assunto.setId(rs.getLong("id"));
-        return assunto;*/
-    
-        /*assunto = new Assunto(rs.getString("nome"), 
-                rs.getDate("dataCriacao"),  
-                JdbcDaoManager.getInstance().getUsuarioDAO().getUsuarioPorId(rs.getLong("id"))); */
-        assunto.setId(rs.getLong("id")); 
-        /*assunto.setUltimaPostagem(rs.getDate("ultimaPostagem")); 
-        assunto.setUltimoPost(JdbcDaoManager.getInstance().getUsuarioDAO().getUsuarioPorId(rs.getLong("ultimoPost"))); 
-         */
+        assunto.setId(rs.getLong("id"));
         return assunto; 
-
     }
-    
 }
