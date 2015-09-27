@@ -4,6 +4,7 @@
     Author     : prisley.costa
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -150,8 +151,8 @@
                                         <td>Assunto</td>
                                         <td>Quantidade Tópicos</td>
                                         <!--<td>Quantidade Mensagens</td>-->
-                                        <td>Data Última Postagem</td>
                                         <td>Usuário</td>
+                                        <td>Data Última Postagem</td>
                                     </tr>
                                         <c:forEach var="assunto" items="${assuntos}">
                                     <tr>
@@ -159,7 +160,7 @@
                                         <td>${topicos.size}</td>
                                         <!--<td>$</td>-->
                                         <td>${autor.nomeLogin}</td>
-                                        <td>${assunto.dataAssunto}</td>
+                                        <td><fmt:formatDate pattern="dd/MM/yyyy" value="${topico.dataCriacao}" /></td>
                                     </tr>
                                         </c:forEach>
                                 </table>

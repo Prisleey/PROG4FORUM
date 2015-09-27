@@ -3,6 +3,8 @@ package br.pucpr.prog4.forum.controllers;
 import br.pucpr.prog4.forum.models.Assunto;
 import br.pucpr.prog4.forum.models.dao.AssuntoDAOImpl;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,8 +23,8 @@ public class IndexServlet extends HttpServlet {
             throws ServletException, IOException {
         List<Assunto> assuntos; 
         AssuntoDAOImpl assuntoManager = new AssuntoDAOImpl(); 
-        assuntos = assuntoManager.buscarAssuntos();    
-        request.setAttribute("assuntos", assuntos); 
+        assuntos = assuntoManager.buscarAssuntos();
+        request.setAttribute("assuntos", assuntos);
 
         RequestDispatcher rd;
         rd = request.getRequestDispatcher("/WEB-INF/JSP/indexJSP.jsp");

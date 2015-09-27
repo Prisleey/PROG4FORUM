@@ -3,6 +3,7 @@ package br.pucpr.prog4.forum.controllers;
 import br.pucpr.prog4.forum.models.Usuario;
 import br.pucpr.prog4.forum.models.dao.UsuarioDAOImpl;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,8 +28,7 @@ public class LoginUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         UsuarioDAOImpl userDAO = new UsuarioDAOImpl();
-        Usuario usuario = userDAO.getUsuarioLogin(request.getParameter("email"),request.getParameter("password")); 
-        //request.getSession().setAttribute("usuario", usuario);
+        Usuario usuario = userDAO.getUsuarioLogin(request.getParameter("email"),request.getParameter("password"));
         request.getSession().setAttribute("usuario", usuario);
         response.sendRedirect("index");
     }
