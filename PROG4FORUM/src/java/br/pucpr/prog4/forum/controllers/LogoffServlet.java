@@ -15,7 +15,7 @@ public class LogoffServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().removeAttribute("usuario");
+        request.getSession().removeAttribute("email");
         response.sendRedirect("index");
     }
 }

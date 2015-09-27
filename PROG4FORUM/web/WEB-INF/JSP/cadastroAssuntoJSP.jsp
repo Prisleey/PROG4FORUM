@@ -1,15 +1,15 @@
 <%-- 
-    Document   : cadastroUserJSP
-    Created on : 24/09/2015, 16:06:38
-    Author     : prisley.costa
+    Document   : cadastrarAssuntoJSP
+    Created on : 27/09/2015, 00:22:02
+    Author     : prisl
 --%>
-    
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro Usuário</title>
+        <title>Cadastro Assunto</title>
 
         <style type="text/css">
 
@@ -80,19 +80,9 @@
                 );
                 color:#333;
                 text-shadow:0px 1px 0px #FFF;
-            }	  
+            }
 
-        input#email { 
-                background-position: 4px 5px; 
-                background-position: 4px 5px, 0px 0px;
-                }
-
-        input#password { 
-                background-position: 4px -20px; 
-                background-position: 4px -20px, 0px 0px;
-                }
-
-        input#nome { 
+        input#nameAssunto { 
                 background-position: 4px -46px; 
                 background-position: 4px -46px, 0px 0px; 
                 }
@@ -178,33 +168,20 @@
 
     </head>
     <body>
-    <div id="formCadastro">
-        <h2>Cadastro de Usuário</h2>
-
-        <form id="RegisterUserForm" action="CadastroUser" method="POST">
-            <fieldset>
-                <p>
-                    <label for="nomeUser"><font size="4px">Nome</font></label>
-                    <input id="nome" name="nome" type="text" class="text" value="" />
-                </p>
-                <p>
-                    <label for="nomeLogin"><font size="4px">Login</font></label>
-                    <input id="login" name="login" type="text" class="text" value="" />
-                </p>
-                <p>
-                    <label for="email"><font size="4px">Email</font></label>
-                    <input id="email" name="email" type="email" class="text" value="" />
-                </p>
-                <p>
-                    <label for="pass"><font size="4px">Password</font></label>
-                    <input id="password" name="password" class="text" type="password" />
-                </p>
-                <p>
-                    <button id="brSalvar" class="botao" type="submit">Cadastrar</button>
-                    <button id="btSalvar" class="botao" type="submit" formaction="index">Voltar</button>
-                </p>
-            </fieldset>
-        </form>
-    </div>
+        <div id="formCadastro">
+            <h2>Cadastro Assunto</h2>
+            <form action="CadastroAssunto" method="POST">
+                <fieldset>
+                    <p>
+                        <label for="nomeUser"><font size="4px">Assunto</font></label>
+                        <input id="nomeAssunto" name="nomeAssunto" type="text" class="text" value="" />
+                    </p>
+                    <p>
+                        <button id="btSalvar" class="botao" type="submit">Salvar</button>
+                        <button id="btSalvar" class="botao" type="submit" formaction="index">Voltar</button>
+                    </p>
+                </fieldset>
+            </form>
+        </div>
     </body>
 </html>

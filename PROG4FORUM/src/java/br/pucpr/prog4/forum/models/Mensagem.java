@@ -10,7 +10,12 @@ public class Mensagem {
     private String mensagem;
     private Usuario usuario;
 
-    public Mensagem() {}
+    public Mensagem(String mensagem, Date dataMsg, Topico topico, Usuario usuario) {
+        this.mensagem = mensagem;
+        this.dataMsg = dataMsg;
+        this.topico = topico;
+        this.usuario = usuario;
+    }
 
     public Date getDataMsg() {
         return dataMsg;

@@ -137,11 +137,19 @@
     <body>
         <div id="formBt">
             <h2>Tela Inicial Fórum</h2>
+            <meta http-equiv="refresh" content="5;URL=index">
             <form action="" method="POST">
                 <fieldset>
                     <c:choose>
-                        <c:when test="${not empty usuario}">
+                        <c:when test="${not empty email}">
                             <h3>Olá <c:out value="${email}"/></h3>
+                            <div id="divAssuntos">
+                                <!-- falta mostrar os assuntos na tela!!!!!! -->
+                                <c:forEach var="assunto" items="${assuntos}"> 
+                                    <a href="topicos?id_assunto=${assunto.id}">${assunto.nome}</a><br /> 
+                                </c:forEach> 
+                            </div>
+                            <a href="CadastroAssunto" class="botao">Novo</a>
                             <a href="Logoff" class="botao">Logoff</a>
                         </c:when>
                         <c:otherwise>

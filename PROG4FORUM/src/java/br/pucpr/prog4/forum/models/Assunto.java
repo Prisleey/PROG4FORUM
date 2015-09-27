@@ -7,17 +7,13 @@ public class Assunto {
     private Long id;
     private Date dataAssunto;
     private List<Topico> topicos;
-    private Usuario criador;
+    private Usuario autor;
     private String assunto;
 
-    public Assunto(String assunto, Usuario criador, Date data) {
+    public Assunto(String assunto, Usuario autor, Date data) {
         this.assunto = assunto;
-        this.criador = criador;
+        this.autor = autor;
         this.dataAssunto = data;
-    }
-
-    public Assunto(List<Topico> topicos, String assunto) {
-        
     }
 
     public Date getDataAssunto() {
@@ -29,11 +25,11 @@ public class Assunto {
     }
 
     public Usuario getCriador() {
-        return criador;
+        return autor;
     }
 
-    public void setCriador(Usuario criador) {
-        this.criador = criador;
+    public void setCriador(Usuario autor) {
+        this.autor = autor;
     }
 
     public Long getId() {

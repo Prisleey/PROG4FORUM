@@ -1,8 +1,11 @@
 package br.pucpr.prog4.forum.controllers;
 
+import br.pucpr.prog4.forum.interfaces.IAssuntoDAO;
+import br.pucpr.prog4.forum.models.Assunto;
 import br.pucpr.prog4.forum.models.Usuario;
-import br.pucpr.prog4.forum.models.dao.UsuarioDAOImpl;
+import br.pucpr.prog4.forum.models.dao.AssuntoDAOImpl;
 import java.io.IOException;
+import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,23 +16,28 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author prisl
  */
-public class LoginUserServlet extends HttpServlet {
+public class CadastroAssuntoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd;
-        rd = request.getRequestDispatcher("/WEB-INF/JSP/loginUserJSP.jsp");
+        rd = request.getRequestDispatcher("/WEB-INF/JSP/cadastroAssuntoJSP.jsp");
         rd.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UsuarioDAOImpl userDAO = new UsuarioDAOImpl();
-        Usuario usuario = userDAO.getUsuarioLogin(request.getParameter("email"),request.getParameter("password")); 
-        //request.getSession().setAttribute("usuario", usuario);
-        request.getSession().setAttribute("email", request.getParameter("email"));
+        
+        IAssuntoDAO impl = new AssuntoDAOImpl();
+        String txtAssunto;
+        Usuario autor;
+        autor = new Usuario((String)request.getSession().getAttribute("email"), request.getSession().getAttribute("email").toString());
+        txtAssunto = request.getParameter("nomeAssunto");
+        Assunto assunto;
+        assunto = new Assunto(txtAssunto, autor, new Date());
+        impl.inserirAssunto(assunto);
         response.sendRedirect("index");
     }
 }

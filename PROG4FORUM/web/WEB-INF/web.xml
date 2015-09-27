@@ -16,6 +16,10 @@
         <servlet-name>LogoffServlet</servlet-name>
         <servlet-class>br.pucpr.prog4.forum.controllers.LogoffServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastroAssuntoServlet</servlet-name>
+        <servlet-class>br.pucpr.prog4.forum.controllers.CadastroAssuntoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroUserServlet</servlet-name>
         <url-pattern>/CadastroUser</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>LogoffServlet</servlet-name>
         <url-pattern>/Logoff</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastroAssuntoServlet</servlet-name>
+        <url-pattern>/CadastroAssunto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

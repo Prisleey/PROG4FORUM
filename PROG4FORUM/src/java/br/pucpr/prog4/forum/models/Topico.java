@@ -1,5 +1,6 @@
 package br.pucpr.prog4.forum.models;
 
+import java.util.Date;
 import java.util.List;
 
 public class Topico {
@@ -8,9 +9,20 @@ public class Topico {
     private Assunto assunto;
     private String topico;
     private List<Mensagem> respostas;
+    private Date dataCriacao;
 
-    public Topico() {
-        
+    public Topico(String topico, Assunto assunto, Date dataCriacao) {
+        this.topico = topico;
+        this.assunto = assunto;
+        this.dataCriacao = dataCriacao;
+    }
+
+    public Date getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(Date dataCriacao) {
+        this.dataCriacao = dataCriacao;
     }
 
     public Long getId() {
