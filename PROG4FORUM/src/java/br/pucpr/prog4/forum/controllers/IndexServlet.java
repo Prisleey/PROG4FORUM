@@ -1,10 +1,8 @@
 package br.pucpr.prog4.forum.controllers;
 
 import br.pucpr.prog4.forum.models.Assunto;
-import br.pucpr.prog4.forum.models.Usuario;
 import br.pucpr.prog4.forum.models.dao.AssuntoDAOImpl;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,20 +19,11 @@ public class IndexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        /*
-        Usuario user;
-        user = (Usuario) request.getSession().getAttribute("email"); 
-        if(user != null){ 
-            request.setAttribute("usuario", user.getNomeUser()); 
-        } 
-*/  
         List<Assunto> assuntos; 
         AssuntoDAOImpl assuntoManager = new AssuntoDAOImpl(); 
         assuntos = assuntoManager.buscarAssuntos();    
         request.setAttribute("assuntos", assuntos); 
 
-        
-        
         RequestDispatcher rd;
         rd = request.getRequestDispatcher("/WEB-INF/JSP/indexJSP.jsp");
         rd.forward(request, response);

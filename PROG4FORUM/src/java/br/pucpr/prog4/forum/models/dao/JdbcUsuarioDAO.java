@@ -105,6 +105,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
 
     @Override
     public Usuario getUsuarioPorId(long id) {
+        JdbcDaoManager.getInstance().iniciar();
         PreparedStatement ps = null;
         ResultSet rs = null;
         Usuario user = null;
@@ -115,7 +116,7 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
                     + "nome, "
                     + "email, "
                     + "senha, "
-                    + "nomeLogin, "
+                    + "nomeLogin "
                     + "FROM usuario "
                     + "WHERE id = ?";
             ps = conexao.prepareStatement(sql);

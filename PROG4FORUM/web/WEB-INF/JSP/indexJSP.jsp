@@ -145,9 +145,10 @@
                             <h3>Olá <c:out value="${usuario.nomeLogin}"/></h3>
                             <div id="divAssuntos">
                                 <!-- falta mostrar os assuntos na tela!!!!!! -->
-                                <c:forEach var="assunto" items="${assuntos}"> 
-                                    <a href="topicos?id_assunto=${assunto.id}">${assunto.nome}</a><br /> 
+                                <c:forEach var="assunto" items="${assuntos}">
+                                    <a href=${assunto.id}>${assunto.assunto}</a><br /> 
                                 </c:forEach> 
+                                <br>
                             </div>
                             <a href="CadastroAssunto" class="botao">Novo</a>
                             <a href="Logoff" class="botao">Logoff</a>

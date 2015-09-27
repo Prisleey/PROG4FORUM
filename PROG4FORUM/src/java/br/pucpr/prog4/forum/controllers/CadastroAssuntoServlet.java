@@ -33,7 +33,8 @@ public class CadastroAssuntoServlet extends HttpServlet {
         IAssuntoDAO impl = new AssuntoDAOImpl();
         String txtAssunto;
         Usuario autor;
-        autor = new Usuario((String)request.getSession().getAttribute("email"), request.getSession().getAttribute("email").toString());
+        //autor = new Usuario(request.getSession().getAttribute("nomeLogin").toString(), request.getSession().getAttribute("email").toString());
+        autor = (Usuario)request.getSession().getAttribute("usuario");
         txtAssunto = request.getParameter("nomeAssunto");
         Assunto assunto;
         assunto = new Assunto(txtAssunto, autor, new Date());

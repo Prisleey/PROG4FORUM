@@ -15,12 +15,20 @@ public class JdbcDaoManager implements IDaoManager {
     private JdbcAssuntoDAO assuntoDAO;
     private JdbcUsuarioDAO usuarioDAO;
     private JdbcTopicoDAO topicoDAO;
+    public static JdbcDaoManager instance;
 
     public JdbcDaoManager() {
         this.assuntoDAO = new JdbcAssuntoDAO();
         this.usuarioDAO = new JdbcUsuarioDAO();
         this.topicoDAO = new JdbcTopicoDAO();
     }
+
+    public static JdbcDaoManager getInstance() { 
+        if(instance == null){ 
+            instance = new JdbcDaoManager();    
+        } 
+        return instance; 
+    } 
 
     @Override
     public void iniciar() {
