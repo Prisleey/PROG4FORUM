@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface IUsuarioDAO {
     public boolean inserirUsuario(Usuario pessoa);
+    public boolean getNomeUser(Usuario user);
     public List<Usuario> getTodosUsuarios(); 
     public Usuario getUsuarioPorId(long id); 
     public Usuario getUsuarioLogin(String email, String senha);

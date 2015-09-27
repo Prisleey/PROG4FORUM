@@ -78,4 +78,22 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
             iManager.encerrar();
         }
     }   
+
+    @Override
+    public boolean getNomeUser(Usuario user) {
+        IDaoManager iManager = new JdbcDaoManager();
+        IUsuarioDAO iUserDAO;
+        try {
+            iManager.iniciar();
+            iUserDAO = iManager.getUsuarioDAO();
+            boolean usu = iUserDAO.getNomeUser(user);
+            iManager.confirmarTransação();
+            return usu;
+        } catch (Exception e) {
+            iManager.abortarTransação();
+            throw e;
+        } finally {
+            iManager.encerrar();
+        }
+    }
 }

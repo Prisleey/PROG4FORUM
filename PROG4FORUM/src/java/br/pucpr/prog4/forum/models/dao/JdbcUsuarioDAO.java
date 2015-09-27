@@ -24,6 +24,9 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
     
     @Override
     public boolean inserirUsuario(Usuario user) {
+        if (getNomeUser(user) == false) {
+            return false;
+        }
         String sql;
         sql = "INSERT INTO usuario("
                 + "nome,"
@@ -47,6 +50,39 @@ public class JdbcUsuarioDAO implements IUsuarioDAO {
         return true;
     }
 
+    @Override
+    public boolean getNomeUser(Usuario user) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Usuario usu = null;
+        try {
+            String sql;
+            sql = "SELECT "
+                    + "id, "
+                    + "nome, "
+                    + "email, "
+                    + "senha, "
+                    + "nomeLogin "
+                    + "FROM usuario "
+                    + "WHERE nomeLogin = ? "
+                    + "OR email = ? ";
+            ps = conexao.prepareStatement(sql);
+            ps.setString(1, user.getNomeLogin());
+            ps.setString(2, user.getEmail());
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                usu = populateObject(rs);
+            }
+
+        } catch (SQLException e) {
+            throw new ForumException("Erro com o banco de dados, tente novamente mais tarde " + e.getMessage());
+        }
+        if (usu == null) {
+            return true;
+        }
+        return false;
+    }
+    
     @Override
     public List<Usuario> getTodosUsuarios() {
         PreparedStatement ps = null;
