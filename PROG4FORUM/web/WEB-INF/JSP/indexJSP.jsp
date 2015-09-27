@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Tela Inicial Fórum</title>
         <style type="text/css">
 
@@ -139,7 +140,7 @@
             <form action="" method="POST">
                 <fieldset>
                     <c:choose>
-                        <c:when test="${not empty email}">
+                        <c:when test="${not empty usuario}">
                             <h3>Olá <c:out value="${email}"/></h3>
                             <a href="Logoff" class="botao">Logoff</a>
                         </c:when>

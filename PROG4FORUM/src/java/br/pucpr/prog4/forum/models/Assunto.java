@@ -10,8 +10,10 @@ public class Assunto {
     private Usuario criador;
     private String assunto;
 
-    public Assunto() {
-        
+    public Assunto(String assunto, Usuario criador, Date data) {
+        this.assunto = assunto;
+        this.criador = criador;
+        this.dataAssunto = data;
     }
 
     public Assunto(List<Topico> topicos, String assunto) {

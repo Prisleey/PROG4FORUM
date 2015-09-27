@@ -1,12 +1,12 @@
 <%-- 
-    Document   : cadastroUserJSP
-    Created on : 24/09/2015, 16:06:38
-    Author     : prisley.costa
+    Document   : assuntoListaJSP
+    Created on : 26/09/2015, 23:15:25
+    Author     : prisl
 --%>
-    
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro Usuário</title>
@@ -21,7 +21,7 @@
 
             body { font-family: Helvetica, Arial, sans-serif; font-size: 12px; }
 
-            #formCadastro {
+            #listaAssunto {
                 color: #fff;
                 background: #2d2d2d;
                 background: -webkit-gradient(
@@ -45,12 +45,12 @@
                 width: 430px;
             }
 
-            #formCadastro a {
+            #listaAssunto a {
                 color: #8c910b;
                 text-shadow: 0px -1px 0px #000;
             }
 
-            #formCadastro fieldset {
+            #listaAssunto fieldset {
                 padding: 20px;
             }
 
@@ -97,7 +97,7 @@
                 background-position: 4px -46px, 0px 0px; 
                 }
 
-        #formCadastro h2 {
+        #listaAssunto h2 {
                 color: #fff;
                 text-shadow: 0px -1px 0px #000;
                 border-bottom: solid #181818 1px;
@@ -110,7 +110,7 @@
                 font-family: Lucida Grande, Helvetica, Arial, sans-serif;
                 }
 
-        #formCadastro p {
+        #listaAssunto p {
               position: relative;
               }
 
@@ -175,36 +175,10 @@
         }
 
         </style>
-
     </head>
     <body>
-    <div id="formCadastro">
-        <h2>Cadastro de Usuário</h2>
-
-        <form id="RegisterUserForm" action="CadastroUser" method="POST">
-            <fieldset>
-                <p>
-                    <label for="nameUser"><font size="4px">Nome</font></label>
-                    <input id="nome" name="nome" type="text" class="text" value="" />
-                </p>
-                <p>
-                    <label for="nomeLogin"><font size="4px">Login</font></label>
-                    <input id="login" name="login" type="text" class="text" value="" />
-                </p>
-                <p>
-                    <label for="email"><font size="4px">Email</font></label>
-                    <input id="email" name="email" type="email" class="text" value="" />
-                </p>
-                <p>
-                    <label for="pass"><font size="4px">Password</font></label>
-                    <input id="password" name="password" class="text" type="password" />
-                </p>
-                <p>
-                    <button id="brSalvar" class="botao" type="submit">Cadastrar</button>
-                    <button id="btSalvar" class="botao" type="submit" formaction="index">Voltar</button>
-                </p>
-            </fieldset>
-        </form>
-    </div>
+        <div id="listaAssunto">
+            <h1>Hello World!</h1>
+        </div>
     </body>
 </html>
