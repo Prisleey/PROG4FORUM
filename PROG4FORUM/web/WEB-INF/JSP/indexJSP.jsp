@@ -164,7 +164,7 @@
                             </tr>
                             <c:forEach var="a" items="${assuntos}">
                                 <tr>
-                                    <td><a href=Topico?cod_assunto=${a.id}> ${a.assunto}  </a></td><br />
+                                    <td><a href=Topico?id_assunto=${a.id}> ${a.assunto}  </a></td><br />
                                     <td>${topicos.size}</td>
                                     <td>${mensagens.size}</td>
                                     <td>${autor.nomeLogin}</td>
