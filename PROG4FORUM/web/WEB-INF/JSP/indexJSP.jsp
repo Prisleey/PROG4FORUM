@@ -162,15 +162,15 @@
                                 <td>Usuário</td>
                                 <td>Data</td>
                             </tr>
-                                <c:forEach var="a" items="${assuntos}">
-                            <tr>
-                                <td><a href=Topico?cod_assunto=${a.id}> ${a.assunto}  </a></td><br />
-                                <td>${topicos.size}</td>
-                                <td>${mensagens.size}</td>
-                                <td>${autor.nomeLogin}</td>
-                                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${topico.dataCriacao}" /></td>
-                            </tr>
-                                </c:forEach>
+                            <c:forEach var="a" items="${assuntos}">
+                                <tr>
+                                    <td><a href=Topico?cod_assunto=${a.id}> ${a.assunto}  </a></td><br />
+                                    <td>${topicos.size}</td>
+                                    <td>${mensagens.size}</td>
+                                    <td>${autor.nomeLogin}</td>
+                                    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${topico.dataCriacao}" /></td>
+                                </tr>
+                            </c:forEach>
                         </table>
                         <br>
                     </div>

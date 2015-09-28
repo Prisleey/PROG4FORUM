@@ -22,7 +22,7 @@ public class TopicoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int id = Integer.parseInt(request.getParameter("cod_assunto")); 
+        int id = Integer.parseInt(request.getParameter("id_assunto")); 
         AssuntoDAOImpl assuntoDAO = new AssuntoDAOImpl(); 
         Assunto assunto = assuntoDAO.buscarAssuntoPorId(id); 
         request.setAttribute("assunto", assunto); 

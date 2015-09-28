@@ -35,7 +35,7 @@ public class JdbcDaoManager implements IDaoManager {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String url;
-            url = "jdbc:mysql://localhost:3306/Forum";
+            url = "jdbc:mysql://localhost:3306/progforum";
             conexao = DriverManager.getConnection(url, "root", "root");
 
             conexao.setAutoCommit(false);

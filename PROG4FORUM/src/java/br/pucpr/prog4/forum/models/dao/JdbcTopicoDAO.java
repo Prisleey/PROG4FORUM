@@ -37,7 +37,6 @@ public class JdbcTopicoDAO implements ITopicoDAO {
             ps = conexao.prepareStatement(sql);
             ps.setLong(1, topico.getAssunto().getId());
             ps.setLong(2, topico.getAutor().getId());
-            //ps.setLong(3, topico.getRespostas().get(0).getId());
             ps.setString(3, topico.getTopico());
             java.sql.Date dataSQL = new java.sql.Date(topico.getDataCriacao().getTime());
             ps.setDate(4, dataSQL);

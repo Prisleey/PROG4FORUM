@@ -36,7 +36,7 @@ public class CadastroTopicoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int id = Integer.parseInt((String) request.getAttribute("id_assunto")); 
+        int id = Integer.parseInt((String) request.getParameter("id_assunto")); 
 
         ITopicoDAO impl = new TopicoDAOImpl();
         IAssuntoDAO implAss = new AssuntoDAOImpl();
