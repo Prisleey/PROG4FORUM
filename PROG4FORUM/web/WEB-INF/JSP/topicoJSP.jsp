@@ -158,7 +158,7 @@
                             <c:forEach var="a" items="${topicos}">
                         <tr>
                             <td><a href=Mensagem?cod_topico=${a.id}> ${a.topico}  </a></td><br />
-                            <td>${a.autor}</td>
+                            <td>${usuario.nomeLogin}</td>
                             <td>${mensagens.size}</td>
                             <!--Quantidade de acessos nesse tópico
                             <td></td>-->
