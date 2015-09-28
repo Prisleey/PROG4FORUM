@@ -158,13 +158,13 @@
                             <c:forEach var="a" items="${topicos}">
                         <tr>
                             <td><a href=Mensagem?cod_topico=${a.id}> ${a.topico}  </a></td><br />
-                            <td>${topicos.autor}</td>
+                            <td>${a.autor}</td>
                             <td>${mensagens.size}</td>
                             <!--Quantidade de acessos nesse tópico
                             <td></td>-->
                             <!--Usuário que fez a última postagem
                             <td></td>-->
-                            <td><fmt:formatDate pattern="dd/MM/yyyy" value="${topico.ultimaPostagem}" /></td>
+                            <td><fmt:formatDate pattern="dd/MM/yyyy" value="${a.ultimaPostagem}" /></td>
                         </tr>
                             </c:forEach>
                     </table><br>

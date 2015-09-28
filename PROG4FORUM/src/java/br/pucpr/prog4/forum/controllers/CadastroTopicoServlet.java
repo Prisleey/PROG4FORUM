@@ -50,6 +50,6 @@ public class CadastroTopicoServlet extends HttpServlet {
         Topico topico;
         topico = new Topico(txtTopico, autor, assunto, new Date());
         impl.inserirTopico(topico);
-        response.sendRedirect("Topico");
+        response.sendRedirect("Topico?id_assunto="+id);
     }
 }
