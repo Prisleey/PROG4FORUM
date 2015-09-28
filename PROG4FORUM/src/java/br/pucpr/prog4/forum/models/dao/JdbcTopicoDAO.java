@@ -62,7 +62,7 @@ public class JdbcTopicoDAO implements ITopicoDAO {
 
         try {
             String sql;
-            sql = "SELECT * FROM topico"
+            sql = "SELECT * FROM topico "
                     + "WHERE id = ?";
             ps = conexao.prepareStatement(sql);
             ps.setLong(1, assunto.getId());
@@ -71,7 +71,7 @@ public class JdbcTopicoDAO implements ITopicoDAO {
                 topicos.add(populateObject(rs));
             }
         }catch(SQLException e){
-            throw new ForumException("Problemas no sistema, por favor tente mais tarde");
+            throw new ForumException("Problemas no sistema, por favor tente mais tarde " +e.getMessage());
         }
         return topicos;
     }
@@ -84,11 +84,11 @@ public class JdbcTopicoDAO implements ITopicoDAO {
     private Topico populateObject(ResultSet rs) throws SQLException {
         Topico topico;
         JdbcDaoManager.getInstance().iniciar();
-        topico = new Topico(rs.getString("nome"),
-                            JdbcDaoManager.getInstance().getUsuarioDAO().getUsuarioPorId(rs.getLong("criador")), 
-                            JdbcDaoManager.getInstance().getAssuntoDAO().buscarAssuntoPorId(rs.getLong("assunto")),
+        topico = new Topico(rs.getString("topico"),
+                            JdbcDaoManager.getInstance().getUsuarioDAO().getUsuarioPorId(rs.getLong("id_usuario")), 
+                            JdbcDaoManager.getInstance().getAssuntoDAO().buscarAssuntoPorId(rs.getLong("id_assunto")),
                             rs.getTimestamp("dataCriacao"));
-       topico.setId(rs.getLong("id"));
+        topico.setId(rs.getLong("id"));
        return topico;        
     }
 }
