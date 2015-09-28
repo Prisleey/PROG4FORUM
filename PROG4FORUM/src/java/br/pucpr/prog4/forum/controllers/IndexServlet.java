@@ -3,8 +3,6 @@ package br.pucpr.prog4.forum.controllers;
 import br.pucpr.prog4.forum.models.Assunto;
 import br.pucpr.prog4.forum.models.dao.AssuntoDAOImpl;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

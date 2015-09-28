@@ -74,7 +74,7 @@
             padding: 18px;
             margin: 0px;
             font-weight: normal;
-            font-size: 13px;
+            font-size: 25px;
             font-family: Lucida Grande, Helvetica, Arial, sans-serif;
         }  
         
@@ -144,28 +144,7 @@
                     <c:choose>
                         <c:when test="${not empty usuario}">
                             <h3>Olá <c:out value="${usuario.nomeLogin}"/></h3>
-                            <div id="divAssuntos">
-                                <!-- falta mostrar os assuntos na tela!!!!!! -->
-                                <table border="1" style="width:100%">
-                                    <tr>
-                                        <td>Assunto</td>
-                                        <td>Quantidade Tópicos</td>
-                                        <!--<td>Quantidade Mensagens</td>-->
-                                        <td>Usuário</td>
-                                        <td>Data Última Postagem</td>
-                                    </tr>
-                                        <c:forEach var="assunto" items="${assuntos}">
-                                    <tr>
-                                        <td><a href=${assunto.id}> ${assunto.assunto}  </a></td><br />
-                                        <td>${topicos.size}</td>
-                                        <!--<td>$</td>-->
-                                        <td>${autor.nomeLogin}</td>
-                                        <td><fmt:formatDate pattern="dd/MM/yyyy" value="${topico.dataCriacao}" /></td>
-                                    </tr>
-                                        </c:forEach>
-                                </table>
-                                <br>
-                            </div>
+                            <br>
                             <a href="CadastroAssunto" class="botao">Novo</a>
                             <a href="Logoff" class="botao">Logoff</a>
                         </c:when>
@@ -174,6 +153,27 @@
                             <a href="CadastroUser" class="botao">Cadastro</a>
                         </c:otherwise>
                     </c:choose>
+                    <div id="divAssuntos">
+                        <table border="1" style="width:100%">
+                            <tr>
+                                <td>Assunto</td>
+                                <td>Quantidade Tópicos</td>
+                                <td>Quantidade Mensagens</td>
+                                <td>Usuário</td>
+                                <td>Data</td>
+                            </tr>
+                                <c:forEach var="a" items="${assuntos}">
+                            <tr>
+                                <td><a href=${a.id}> ${a.assunto}  </a></td><br />
+                                <td>${topicos.size}</td>
+                                <td>${mensagens.size}</td>
+                                <td>${autor.nomeLogin}</td>
+                                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${topico.dataCriacao}" /></td>
+                            </tr>
+                                </c:forEach>
+                        </table>
+                        <br>
+                    </div>
                 </fieldset>
             </form>
         </div>
