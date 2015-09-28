@@ -27,11 +27,11 @@ public class TopicoServlet extends HttpServlet {
         Assunto assunto = assuntoDAO.buscarAssuntoPorId(id); 
         request.setAttribute("assunto", assunto); 
 
-        /*List<Topico> topicos;
+        List<Topico> topicos;
         TopicoDAOImpl implTop = new TopicoDAOImpl();
         topicos = implTop.buscarTopicosPorAssunto(assunto);
         request.setAttribute("topicos", topicos);
-*/
+
         RequestDispatcher rd;
         rd = request.getRequestDispatcher("/WEB-INF/JSP/topicoJSP.jsp");
         rd.forward(request, response);

@@ -170,6 +170,7 @@
         <div id="formTopico">
             <h2>Cadastro Tópico</h2>
             <form action="CadastroTopico" method="POST">
+                <input type="hidden" value="id_assunto=${id_assunto}" />
                 <fieldset>
                     <p>
                         <label for="nomeTop"><font size="4px">Tópico</font></label>
@@ -177,6 +178,7 @@
                     </p>
                     <p>
                         <button id="btSalvar" class="botao" type="submit">Salvar</button>
+                        <!--<a href="index" clas="botao">Voltar</a>-->
                         <button id="btSalvar" class="botao" type="submit" formaction="index">Voltar</button>
                     </p>
                 </fieldset>
