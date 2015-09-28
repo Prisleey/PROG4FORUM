@@ -20,6 +20,14 @@
         <servlet-name>CadastroAssuntoServlet</servlet-name>
         <servlet-class>br.pucpr.prog4.forum.controllers.CadastroAssuntoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TopicoServlet</servlet-name>
+        <servlet-class>br.pucpr.prog4.forum.controllers.TopicoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastroTopicoServlet</servlet-name>
+        <servlet-class>br.pucpr.prog4.forum.controllers.CadastroTopicoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroUserServlet</servlet-name>
         <url-pattern>/CadastroUser</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>CadastroAssuntoServlet</servlet-name>
         <url-pattern>/CadastroAssunto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TopicoServlet</servlet-name>
+        <url-pattern>/Topico</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastroTopicoServlet</servlet-name>
+        <url-pattern>/CadastroTopico</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

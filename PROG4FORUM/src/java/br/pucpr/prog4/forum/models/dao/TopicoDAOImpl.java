@@ -13,6 +13,8 @@ public class TopicoDAOImpl implements ITopicoDAO {
         IDaoManager iManager = new JdbcDaoManager();
         ITopicoDAO iTopicoDAO = iManager.getTopicoDAO();
         try {
+            iManager.iniciar();
+            iTopicoDAO = iManager.getTopicoDAO();
             iTopicoDAO.inserirTopico(topico);
             iManager.confirmarTransação();
             return true;
@@ -31,6 +33,7 @@ public class TopicoDAOImpl implements ITopicoDAO {
         ITopicoDAO iTopicoDAO;
         List<Topico> topicos;
         try {
+            iManager.iniciar();
             iTopicoDAO = iManager.getTopicoDAO();
             topicos = iTopicoDAO.buscarTopicos();
             iManager.confirmarTransação();
@@ -49,6 +52,7 @@ public class TopicoDAOImpl implements ITopicoDAO {
         ITopicoDAO iTopicoDAO;
         List<Topico> topicos;
         try {
+            iManager.iniciar();
             iTopicoDAO = iManager.getTopicoDAO();
             topicos = iTopicoDAO.buscarTopicosPorAssunto(assunto);
             iManager.confirmarTransação();
@@ -67,6 +71,7 @@ public class TopicoDAOImpl implements ITopicoDAO {
         ITopicoDAO iTopicoDAO;
         Topico topico;
         try {
+            iManager.iniciar();
             iTopicoDAO = iManager.getTopicoDAO();
             topico = iTopicoDAO.buscarTopicoPorId(id);
             iManager.confirmarTransação();

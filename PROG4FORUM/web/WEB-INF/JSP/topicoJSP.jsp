@@ -1,7 +1,7 @@
 <%-- 
-    Document   : indexJSP
-    Created on : 25/09/2015, 16:06:35
-    Author     : prisley.costa
+    Document   : topicoJSP
+    Created on : 27/09/2015, 22:12:49
+    Author     : prisl
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Tela Inicial Fórum</title>
+        <title>Tópicos</title>
         <style type="text/css">
 
         html, body, h1, form, fieldset {
@@ -21,7 +21,7 @@
 
         body { font-family: Helvetica, Arial, sans-serif; font-size: 12px; }
 
-                #formBt {
+                #formTp {
                                 color: #fff;
                     background: #2d2d2d;
                     background: -webkit-gradient(
@@ -45,15 +45,15 @@
                                 width: 650px;
                     }
 
-        #formBt p {
+        #formTp p {
             position: relative;
         }
 
-        #formBt fieldset {
+        #formTp fieldset {
             padding: 20px;
         }
 
-        #formBt h2 {
+        #formTp h2 {
             color: #fff;
             text-shadow: 0px -1px 0px #000;
             border-bottom: solid #181818 1px;
@@ -65,7 +65,7 @@
             font-size: 24px;
             font-family: Lucida Grande, Helvetica, Arial, sans-serif;
         }  
-        #formBt h3 {
+        #formTp h3 {
             color: #fff;
             text-shadow: 0px -1px 0px #000;
             border-bottom: solid #181818 1px;
@@ -118,7 +118,7 @@
             font-style:normal;
             height:22px;
             line-height:22px;
-            width:62px;
+            width:90px;
             text-decoration:none;
             text-align:center;
             text-shadow:1px 1px 0px #ffffff;
@@ -136,39 +136,36 @@
         </style>
     </head>
     <body>
-        <div id="formBt">
-            <h2>Tela Inicial Fórum</h2>
-            <meta http-equiv="refresh" content="5;URL=index">
-            <form action="Topico" method="POST">
+        <div id="formTp"
+            <form action="CadastroTopico" method="POST">
                 <fieldset>
+                    <h3>Assunto: <c:out value="${assunto.assunto}"/></h3><br>
                     <c:choose>
                         <c:when test="${not empty usuario}">
-                            <h3>Olá <c:out value="${usuario.nomeLogin}"/></h3>
-                            <br>
-                            <a href="CadastroAssunto" class="botao">Novo</a>
-                            <a href="Logoff" class="botao">Logoff</a>
+                            <a href="CadastroTopico" class="botao">Novo Tópico</a>
                         </c:when>
-                        <c:otherwise>
-                            <a href="LoginUser" class="botao">Login</a>
-                            <a href="CadastroUser" class="botao">Cadastro</a>
-                        </c:otherwise>
                     </c:choose>
-                    <div id="divAssuntos">
+                    <a href="index" class="botao">Voltar</a><br>
+                    <div id="divTopicos"><br>
                         <table border="1" style="width:100%">
                             <tr>
-                                <td>Assunto</td>
-                                <td>Quantidade Tópicos</td>
-                                <td>Quantidade Mensagens</td>
-                                <td>Usuário</td>
-                                <td>Data</td>
+                                <td>Tópico</td>
+                                <td>Autor</td>
+                                <td>Quantidade Respostas</td>
+                                <!--<td>Quantidade Acessos</td>-->
+                                <!--<td>Nome Usuário Última Postagem</td>-->
+                                <td>Data Última Postagem</td>
                             </tr>
-                                <c:forEach var="a" items="${assuntos}">
+                                <c:forEach var="a" items="${topicos}">
                             <tr>
-                                <td><a href=Topico?cod_assunto=${a.id}> ${a.assunto}  </a></td><br />
-                                <td>${topicos.size}</td>
+                                <td><a href=Mensagem?cod_topico=${a.id}> ${a.topico}  </a></td><br />
+                                <td>${topicos.autor}</td>
                                 <td>${mensagens.size}</td>
-                                <td>${autor.nomeLogin}</td>
-                                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${topico.dataCriacao}" /></td>
+                                <!--Quantidade de acessos nesse tópico
+                                <td></td>-->
+                                <!--Usuário que fez a última postagem
+                                <td></td>-->
+                                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${topico.ultimaPostagem}" /></td>
                             </tr>
                                 </c:forEach>
                         </table>

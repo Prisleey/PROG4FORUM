@@ -4,7 +4,6 @@ import br.pucpr.prog4.forum.exception.ForumException;
 import br.pucpr.prog4.forum.interfaces.IAssuntoDAO;
 import br.pucpr.prog4.forum.models.Assunto;
 import br.pucpr.prog4.forum.models.Topico;
-import br.pucpr.prog4.forum.models.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,18 +29,16 @@ public class JdbcAssuntoDAO implements IAssuntoDAO {
         sql = "INSERT INTO assunto("
                 + "id_user, "
                 + "assunto, "
-                + "autor, "
                 + "dataCriacao) "
-                + "VALUES (?, ?, ?, ?)";
+                + "VALUES (?, ?, ?)";
 
         PreparedStatement ps;
         try {
             ps = conexao.prepareStatement(sql);
             ps.setLong(1, assunto.getCriador().getId());
             ps.setString(2, assunto.getAssunto());
-            ps.setString(3, assunto.getCriador().getNomeLogin());
             java.sql.Date dataSQL = new java.sql.Date(assunto.getDataAssunto().getTime());
-            ps.setDate(4, dataSQL);
+            ps.setDate(3, dataSQL);
             ps.executeUpdate();
 
         } catch (Exception ex) {

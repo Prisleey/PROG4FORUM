@@ -26,22 +26,27 @@ public class JdbcTopicoDAO implements ITopicoDAO {
     public boolean inserirTopico(Topico topico) {
         String sql;
         sql = "INSERT INTO topico("
-                + "assunto,"
-                + "topico,"
-                + "resposta) "
-                + "VALUES (?, ?, ?)";
+                + "id_assunto, "
+                + "id_usuario, "
+                + "id_mensagem, "
+                + "topico, "
+                + "dataCriacao) "
+                + "VALUES (?, ?, ?, ?, ?)";
 
         PreparedStatement ps;
         try {
             ps = conexao.prepareStatement(sql);
-            ps.setString(1, topico.getAssunto().getAssunto());
-            ps.setString(2, topico.getTopico());
-            ps.setString(3, topico.getRespostas().get(0).getResposta());
-            ps.executeQuery();
+            ps.setLong(1, topico.getAssunto().getId());
+            ps.setLong(2, topico.getAutor().getId());
+            ps.setLong(3, topico.getRespostas().get(0).getId());
+            ps.setString(4, topico.getTopico());
+            java.sql.Date dataSQL = new java.sql.Date(topico.getDataCriacao().getTime());
+            ps.setDate(5, dataSQL);
+            ps.executeUpdate();
             return true;
 
         } catch (Exception ex) {
-            throw new ForumException("Ocorreu um erro ao inserir um usuario " + ex.getMessage());
+            throw new ForumException("Ocorreu um erro ao inserir um topico " + ex.getMessage());
         }
     }
 

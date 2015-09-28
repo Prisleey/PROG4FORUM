@@ -7,14 +7,32 @@ public class Topico {
 
     private Long id;
     private Assunto assunto;
+    private Usuario autor;
     private String topico;
     private List<Mensagem> respostas;
-    private Date dataCriacao;
+    private Date dataCriacao, ultimaPostagem;
 
-    public Topico(String topico, Assunto assunto, Date dataCriacao) {
+    public Topico(String topico, Usuario autor, Assunto assunto, Date dataCriacao) {
         this.topico = topico;
+        this.autor = autor;
         this.assunto = assunto;
         this.dataCriacao = dataCriacao;
+    }
+
+    public Date getUltimaPostagem() {
+        return ultimaPostagem;
+    }
+
+    public void setUltimaPostagem(Date ultimaPostagem) {
+        this.ultimaPostagem = ultimaPostagem;
+    }
+
+    public Usuario getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Usuario autor) {
+        this.autor = autor;
     }
 
     public int qtdeMensagens() {
