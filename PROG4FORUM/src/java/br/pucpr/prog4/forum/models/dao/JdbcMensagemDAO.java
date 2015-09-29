@@ -3,6 +3,7 @@ package br.pucpr.prog4.forum.models.dao;
 import br.pucpr.prog4.forum.exception.ForumException;
 import br.pucpr.prog4.forum.interfaces.IMensagemDAO;
 import br.pucpr.prog4.forum.models.Mensagem;
+import br.pucpr.prog4.forum.models.Topico;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.List;
@@ -54,12 +55,12 @@ public class JdbcMensagemDAO implements IMensagemDAO {
     }
 
     @Override
-    public List<Mensagem> buscarMensagemPorTopico(Mensagem mensagem) {
+    public Mensagem buscarMensagemPorId(long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Mensagem buscarMensagemPorId(long id) {
+    public List<Mensagem> buscarMensagensPorTopico(Topico topico) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

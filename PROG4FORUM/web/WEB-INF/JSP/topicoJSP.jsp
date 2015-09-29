@@ -136,7 +136,7 @@
         </style>
     </head>
     <body>
-        <div id="formTp"
+        <div id="formTp">
             <fieldset>
                 <h3>Assunto: <c:out value="${assunto.assunto}"/></h3><br>
                 <c:choose>
@@ -157,13 +157,13 @@
                         </tr>
                             <c:forEach var="a" items="${topicos}">
                         <tr>
-                            <td><a href=Mensagem?cod_topico=${a.id}> ${a.topico}  </a></td><br />
-                            <td>${usuario.nomeLogin}</td>
+                            <td><a href=Mensagem?cod_topico=${a.id}> ${a.topico}</a></td><br />
+                            <td>${a.autor.nomeLogin}</td>
                             <td>${mensagens.size}</td>
-                            <!--Quantidade de acessos nesse tópico
-                            <td></td>-->
-                            <!--Usuário que fez a última postagem
-                            <td></td>-->
+                            <!--Quantidade de acessos nesse tópico-->
+                            <!--<td></td>-->
+                            <!--Usuário que fez a última postagem-->
+                            <!--<td></td>-->
                             <td><fmt:formatDate pattern="dd/MM/yyyy" value="${a.ultimaPostagem}" /></td>
                         </tr>
                             </c:forEach>

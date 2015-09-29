@@ -165,7 +165,7 @@
                             <c:forEach var="a" items="${assuntos}">
                                 <tr>
                                     <td><a href=Topico?id_assunto=${a.id}> ${a.assunto}  </a></td><br />
-                                    <td>${topicos.size}</td>
+                                    <td>${a.qtdeTop}</td>
                                     <td>${mensagens.size}</td>
                                     <td>${autor.nomeLogin}</td>
                                     <td><fmt:formatDate pattern="dd/MM/yyyy" value="${topico.dataCriacao}" /></td>

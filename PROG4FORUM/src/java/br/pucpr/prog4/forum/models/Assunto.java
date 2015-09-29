@@ -10,6 +10,7 @@ public class Assunto {
     private List<Topico> topicos;
     private Usuario autor;
     private String assunto;
+    private int qtdeTopicos;
 
     public Assunto(String assunto, Usuario autor, Date data) {
         this.assunto = assunto;
@@ -18,6 +19,11 @@ public class Assunto {
         this.topicos = new ArrayList<Topico>();
     }
 
+    public int getQtdeTop() {
+        qtdeTopicos = topicos.size();
+        return qtdeTopicos;
+    }
+    
     public int topicoSize() {
         return topicos.size();
     }

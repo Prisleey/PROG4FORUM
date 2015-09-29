@@ -12,4 +12,5 @@ public interface IDaoManager {
     IUsuarioDAO getUsuarioDAO();
     IAssuntoDAO getAssuntoDAO();
     ITopicoDAO getTopicoDAO();
+    IMensagemDAO getMensagemDAO();
 }

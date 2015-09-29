@@ -63,9 +63,11 @@ public class JdbcTopicoDAO implements ITopicoDAO {
         try {
             String sql;
             sql = "SELECT * FROM topico "
-                    + "WHERE id = ?";
+                    + "WHERE id_assunto = ?";
+
             ps = conexao.prepareStatement(sql);
             ps.setLong(1, assunto.getId());
+
             rs = ps.executeQuery();
             while(rs.next()){
                 topicos.add(populateObject(rs));
@@ -89,6 +91,6 @@ public class JdbcTopicoDAO implements ITopicoDAO {
                             JdbcDaoManager.getInstance().getAssuntoDAO().buscarAssuntoPorId(rs.getLong("id_assunto")),
                             rs.getTimestamp("dataCriacao"));
         topico.setId(rs.getLong("id"));
-       return topico;        
+       return topico;
     }
 }

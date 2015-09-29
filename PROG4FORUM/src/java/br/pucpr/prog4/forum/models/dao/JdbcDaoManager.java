@@ -15,12 +15,14 @@ public class JdbcDaoManager implements IDaoManager {
     private JdbcAssuntoDAO assuntoDAO;
     private JdbcUsuarioDAO usuarioDAO;
     private JdbcTopicoDAO topicoDAO;
+    private JdbcMensagemDAO mensagemDAO;
     public static JdbcDaoManager instance;
 
     public JdbcDaoManager() {
         this.assuntoDAO = new JdbcAssuntoDAO();
         this.usuarioDAO = new JdbcUsuarioDAO();
         this.topicoDAO = new JdbcTopicoDAO();
+        this.mensagemDAO = new JdbcMensagemDAO();
     }
 
     public static JdbcDaoManager getInstance() { 
@@ -42,6 +44,7 @@ public class JdbcDaoManager implements IDaoManager {
             assuntoDAO.setConexao(conexao);
             usuarioDAO.setConexao(conexao);
             topicoDAO.setConexao(conexao);
+            mensagemDAO.setConexao(conexao);
         } catch (ClassNotFoundException e) {
             throw new ForumException("Erro conector JDBC " + e.getMessage());
         } catch(SQLException e) {
@@ -88,6 +91,10 @@ public class JdbcDaoManager implements IDaoManager {
     @Override
     public ITopicoDAO getTopicoDAO() {
         return topicoDAO;
+    }
+
+    public JdbcMensagemDAO getMensagemDAO() {
+        return mensagemDAO;
     }
 
     @Override

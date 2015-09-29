@@ -101,6 +101,6 @@ public class JdbcAssuntoDAO implements IAssuntoDAO {
         Assunto assunto;
         assunto = new Assunto(rs.getString("assunto"), JdbcDaoManager.getInstance().getUsuarioDAO().getUsuarioPorId(rs.getLong("id")), rs.getDate("dataCriacao"));
         assunto.setId(rs.getLong("id"));
-        return assunto; 
+        return assunto;
     }
 }
