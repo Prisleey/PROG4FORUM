@@ -140,18 +140,17 @@
     <body>
         <div id="formMensagem">
             <h2>Cadastro Tópico</h2>
-            <form action="CadastroTopico" method="POST">
-                <input type="hidden" name="id_assunto" value="${id_assunto}">
+            <form action="CadastroMensagem" method="POST">
+                <input type="hidden" name="id_topico" value="${id_topico}">
                 <fieldset>
                     <p>
                         <label for="nomeTop"><font size="4px">Tópico</font></label>
-                        <textarea rows="4" cols="50">
+                        <textarea name="textMensagem" rows="4" cols="50">
 
                         </textarea>
                     </p>
                     <p>
                         <button id="btSalvar" class="botao" type="submit">Salvar</button>
-                        <!--<a href="index" clas="botao">Voltar</a>-->
                         <button id="btSalvar" class="botao" type="submit" formaction="index">Voltar</button>
                     </p>
                 </fieldset>

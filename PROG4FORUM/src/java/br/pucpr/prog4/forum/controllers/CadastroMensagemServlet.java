@@ -34,11 +34,11 @@ public class CadastroMensagemServlet extends HttpServlet {
         TopicoDAOImpl topicoDAO = new TopicoDAOImpl();
         Topico topico = topicoDAO.buscarTopicoPorId(Integer.parseInt(request.getParameter("id_topico")));
         
-        Mensagem msg; // = new Mensagem(topico, request.getParameter("mensagem"), user);
+        Mensagem msg; // = new Mensagem(topico, request
         
         msg = new Mensagem(request.getParameter("mensagem"), new Date(), topico, user);
         MensagemDAOImpl mensagemDAO = new MensagemDAOImpl();
         mensagemDAO.inserirMensagem(msg);
-        response.sendRedirect("/Forum/mensagens?id_topico="+Integer.parseInt(request.getParameter("id_topico")));
+        response.sendRedirect("Mensagem?id_topico="+Integer.parseInt(request.getParameter("id_topico")));
     }
 }
